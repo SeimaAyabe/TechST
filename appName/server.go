@@ -49,7 +49,7 @@ func serve() {
 	// 商品情報を削除する
 	router.POST("/deleteProduct", controller.DeleteProduct)
 
-	if err := router.Run(":8080"); err != nil {
+	if err := router.Run(":8081"); err != nil {
 		log.Fatal("Server Run Failed.: ", err)
 	}
 }
