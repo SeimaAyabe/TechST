@@ -6,7 +6,8 @@ table {
     border-collapse: collapse;
 }
 
-thead, tbody {
+thead,
+tbody {
     display: block;
 }
 
@@ -17,7 +18,8 @@ tbody {
     overflow-y: scroll;
 }
 
-th,td {
+th,
+td {
     background-color: #ffffff;
     border: 1px solid #ffcc66;
     padding: 0 8px;
@@ -30,24 +32,29 @@ thead th {
     color: #ff9900;
 }
 
-th.index, td.index {
+th.index,
+td.index {
     width: 50px;
 }
 
-th.name, td.name {
+th.name,
+td.name {
     width: 100px;
 }
 
-th.memo, td.memo {
+th.memo,
+td.memo {
     width: 200px;
 }
 
-th.state, td.state {
+th.state,
+td.state {
     width: 70px;
     text-align: center;
 }
 
-th.delete, td.delete {
+th.delete,
+td.delete {
     width: 70px;
     text-align: center;
 }
@@ -55,4 +62,3 @@ th.delete, td.delete {
 tbody tr:hover td {
     background: #ccffff;
 }
-
