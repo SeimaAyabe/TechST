@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    height: 100px;
+    width: 100%;
+    padding: 15px 0;
+    background-color: #337079;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+}
+
+header .headline {
+    line-height: 100px;
+    float: left;
+    font-size: 30px;
+    margin-left: 100px;
+}
+
+.nav-list {
+    line-height: 100px;
+    float: left;
+    margin-left: 30px;
+    list-style: none;
+}
+
+.nav-list-item {
+    list-style: none;
+    display: inline-block;
+    margin: 0 20px;
+}
+
+.sidebar,
+.main,
+footer {
+    padding: 20px;
+}
+
+.sidebar {
+    background-color: #ccc;
+}
+
+.main {
+    background-color: #efefef;
+}
+
+footer {
+    text-align: center;
+    background-color: #222;
+    color: #fff;
+}
+
+@media screen and (min-width : 768px) {
+
+    /* デスクトップ用CSS */
+    header {
+        flex-direction: row;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .sidebar {
+        width: 300px;
+    }
+
+    .main {
+        flex: 1;
+        order: 2;
+    }
+}
