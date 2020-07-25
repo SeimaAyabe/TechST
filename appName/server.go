@@ -32,7 +32,7 @@ func serve() {
 
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
-	router.StaticFS("/shoppingapp", http.Dir("./views/static"))
+	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))
 
 	// 全ての商品情報のJSONを返す
 	router.GET("/fetchAllProducts", controller.FetchAllProducts)
