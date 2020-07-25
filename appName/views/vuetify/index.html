@@ -20,15 +20,17 @@
                 <v-container>
                     <!--本文内容-->
                     <v-layout wrap>
-                        <v-flex xs12 sm6 md4 text-center my-5>
-                            <v-card max-width="344" class="mx-auto">
-                                <v-card-title>たいとるなんですこれは</v-card-title>
-                                <v-card-text>説明文、説明文。説明文、説明文。説明文、説明文。説明文、説明文。</v-card-text>
-                                <v-card-actions>
-                                    <v-btn text>もっと見る</v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        </v-flex>
+                        <div v-for="(item, index) in computedProducts">
+                            <v-flex xs12 sm6 md4 text-center my-5>
+                                <v-card max-width="344" class="mx-auto">
+                                    <v-card-title class="name">{{ item.name }}</v-card-title>
+                                    <v-card-text class="memo">{{ item.memo }}</v-card-text>
+                                    <v-card-actions>
+                                        <v-btn text>もっと見る</v-btn>
+                                    </v-card-actions>
+                                </v-card>
+                            </v-flex>
+                        </div>
 
                         <v-flex xs12 sm6 md4 text-center my-5>
                             <v-card max-width="344" class="mx-auto">
@@ -50,6 +52,38 @@
                             </v-card>
                         </v-flex>
                     </v-layout>
+
+                    <table>
+                        <!-- テーブルヘッダー -->
+                        <thead v-pre>
+                            <tr>
+                                <th class="index">No</th>
+                                <th class="name">商品名</th>
+                                <th class="memo">メモ</th>
+                                <th class="state">状態</th>
+                                <th class="delete">削除</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="(item, index) in computedProducts">
+                                <td class="index">{{ index + 1 }}</td>
+                                <td class="name">{{ item.name }}</td>
+                                <td class="memo">{{ item.memo }}</td>
+                                <td class="state">
+                                    <!-- 状態変更ボタン -->
+                                    <button v-on:click="doChangeProductState(item)">
+                                        {{ labels[item.state] }}
+                                    </button>
+                                </td>
+                                <td class="delete">
+                                    <!-- 削除ボタン -->
+                                    <button v-on:click="doDeleteProduct(item)">
+                                        削除
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </v-container>
             </v-content>
             <v-footer>
@@ -61,7 +95,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
-    <script src="/views/js/layout.js" defer></script>
+    <!-- axios：HTTP通信を超簡単に行うことができるJavaScriptライブラリ -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+    <script src="/views/js/vueProduct.js" defer></script>
 </body>
 
 </html>
