@@ -29,7 +29,10 @@ new Vue({
             }
         ],
         // true：入力済・false：未入力
-        isEntered: false
+        isEntered: false,
+
+        // true：サイドメニュー表示・false：サイドメニュー非表示
+        drawer: false
     },
 
     // 算出プロパティ
