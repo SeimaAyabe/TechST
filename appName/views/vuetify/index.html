@@ -2,6 +2,9 @@
 <html>
 
 <head>
+    <!-- スタイルシート -->
+    <link rel="stylesheet" type="text/css" href="/views/css/layout.css">
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
@@ -12,8 +15,34 @@
     <div id="app">
         <v-app>
             <div>
-                <v-app-bar>
-                    <!--ヘッダー内容-->
+                <v-app-bar color="gray accent-4" dark>
+                    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+                    <v-toolbar-title>びゅうてぃふぁい</v-toolbar-title>
+
+                    <div class="flex-grow-1"></div>
+
+                    <v-btn icon>
+                        <v-icon>mdi-heart</v-icon>
+                    </v-btn>
+
+                    <form method="get" action="#" class="search_container">
+                        <input type="text" size="25" placeholder="　商品を検索"><input type="submit" value="&#xf002">
+                    </form>
+
+                    <v-menu left bottom>
+                        <template v-slot:activator="{ on }">
+                            <v-btn icon v-on="on">
+                                <v-icon>mdi-dots-vertical</v-icon>
+                            </v-btn>
+                        </template>
+
+                        <v-list>
+                            <v-list-item v-for="n in 5" :key="n" @click="() => {}">
+                                <v-list-item-title>りんく {{ n }}</v-list-item-title>
+                            </v-list-item>
+                        </v-list>
+                    </v-menu>
                 </v-app-bar>
             </div>
             <v-content>
