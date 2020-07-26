@@ -1,0 +1,22 @@
+{
+  "name": "seimaayabe",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "index.js",
+  "scripts": {
+    "test": "testcommand"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeimaAyabe/TechST.git"
+  },
+  "keywords": [
+    "thamen"
+  ],
+  "author": "seimaayabe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeimaAyabe/TechST/issues"
+  },
+  "homepage": "https://github.com/SeimaAyabe/TechST#readme"
+}

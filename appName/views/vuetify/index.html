@@ -4,10 +4,16 @@
 <head>
     <!-- スタイルシート -->
     <link rel="stylesheet" type="text/css" href="/views/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/views/css/modal.css">
+
+    <!-- semantic.css  -->
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 
@@ -75,15 +81,18 @@
                             </v-card>
                         </v-flex>
 
-                        <v-flex xs12 sm6 md4 text-center my-5>
-                            <v-card max-width="344" class="mx-auto">
-                                <v-card-title>たいとるなんですこれは</v-card-title>
-                                <v-card-text>説明文、説明文。説明文、説明文。説明文、説明文。説明文、説明文。</v-card-text>
-                                <v-card-actions>
-                                    <v-btn text>もっと見る</v-btn>
-                                </v-card-actions>
-                            </v-card>
-                        </v-flex>
+                        <div class="content">
+                            <a class="js-modal-open" href="">クリックでモーダルを表示</a>
+                        </div>
+                        <div class="modal js-modal">
+                            <div class="modal__bg js-modal-close"></div>
+                            <div class="modal__content">
+                                <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。
+                                </p>
+                                <a class="js-modal-close" href="">閉じる</a>
+                            </div>
+                            <!--modal__inner-->
+                        </div>
                     </v-layout>
 
                     <table>
@@ -120,16 +129,26 @@
                 </v-container>
             </v-content>
             <v-footer>
+                <button class="ui orange button">Orange</button>
                 <div class="flex-grow-1"></div>
                 <div>&copy; 2019 - {{ new Date().getFullYear() }} クモのようにコツコツと</div>
             </v-footer>
         </v-app>
     </div>
 
+    <!-- semantic.js  -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+
     <!-- axios：HTTP通信を超簡単に行うことができるJavaScriptライブラリ -->
     <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+
+    <!-- JQuery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="/views/js/modal.js"></script>
+
     <script src="/views/js/vueProduct.js" defer></script>
 </body>
 
