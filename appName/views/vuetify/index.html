@@ -5,6 +5,7 @@
     <!-- スタイルシート -->
     <link rel="stylesheet" type="text/css" href="/views/css/layout.css">
     <link rel="stylesheet" type="text/css" href="/views/css/modal.css">
+    <link rel="stylesheet" type="text/css" href="/views/css/selectbox.css">
 
     <!-- semantic.css  -->
     <link rel="stylesheet" type="text/css"
@@ -89,17 +90,9 @@
                             <div class="modal__content">
                                 <p>ここにモーダルウィンドウで表示したいコンテンツを入れます。モーダルウィンドウを閉じる場合は下の「閉じる」をクリックするか、背景の黒い部分をクリックしても閉じることができます。
                                 </p>
-                                <div class="dateSlide">
-                                    <ul class="dateSlideList">
-                                        <li class="date01"></li>
-                                        <li class="date02"></li>
-                                        <li class="date03"></li>
-                                        <li class="date04"></li>
-                                        <li class="date05"></li>
-                                        <li class="date06"></li>
-                                        <li class="date07"></li>
-                                    </ul>
-                                </div>
+                                <select class="ui dropdown dateSlide">
+                                    <option value="0">日付を選択してください</option>
+                                </select>
                                 <button class="ui orange button">Orange</button>
                                 <a class="js-modal-close" href="">閉じる</a>
                             </div>
