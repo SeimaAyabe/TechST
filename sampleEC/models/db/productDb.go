@@ -8,7 +8,7 @@ import (
 	"github.com/jinzhu/gorm"
 
 	// エンティティ(データベースのテーブルの行に対応)
-	entity "github.com/username/appName/models/entity"
+	entity "github.com/username/sampleEC/models/entity"
 )
 
 // DB接続する

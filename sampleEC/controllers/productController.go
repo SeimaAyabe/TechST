@@ -8,10 +8,10 @@ import (
 	"github.com/gin-gonic/gin"
 
 	// エンティティ(データベースのテーブルの行に対応)
-	entity "github.com/username/appName/models/entity"
+	entity "github.com/username/sampleEC/models/entity"
 
 	// DBアクセス用モジュール
-	db "github.com/username/appName/models/db"
+	db "github.com/username/sampleEC/models/db"
 )
 
 // 商品の購入状態を定義

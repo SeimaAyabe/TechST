@@ -14,7 +14,7 @@ import (
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
 	// コントローラー
-	controller "github.com/username/appName/controllers"
+	controller "github.com/username/sampleEC/controllers"
 )
 
 func main() {
