@@ -30,6 +30,14 @@ func serve() {
 	// 静的ファイルのパスを指定
 	router.Static("/views", "./views")
 
+	// HTMLファイルのパスを指定
+	router.LoadHTMLGlob("views/static/*/**.html")
+
+	//Index
+	router.GET("/", func(ctx *gin.Context) {
+		ctx.HTML(200, "top.html", gin.H{})
+	})
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))
