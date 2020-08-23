@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Sample App</title>
 
-    <!-- BULMAを導入  -->
+    <!-- CSSフレームワーク BULMAを導入  -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+
+    <!-- 自動スライドツール Swiper(CSS)を導入  -->
+    <link rel="stylesheet" href="/views/css/swiper.css">
 </head>
 
 <body>
@@ -39,6 +42,20 @@
     </header>
 
     <!-- 本文  -->
+    <!-- Swiper (まだ未完成)  -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper01.png"
+                    alt="Swiper01"></div>
+            <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper02.png"
+                    alt="Swiper02"></div>
+            <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png"
+                    alt="Swiper03"></div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
     <main class="columns">
         <!-- サイドエリア  -->
         <div class="submenu column is-3">
@@ -52,6 +69,17 @@
             本文
         </div>
     </main>
+
+    <!-- 自動スライドツール Swiper(JS)を導入  -->
+    <script src="/views/js/swiper.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -31,7 +31,7 @@ func serve() {
 	router.Static("/views", "./views")
 
 	// HTMLファイルのパスを指定
-	router.LoadHTMLGlob("views/static/*/**.html")
+	router.LoadHTMLGlob("./views/static/*/**.html")
 
 	//Index
 	router.GET("/", func(ctx *gin.Context) {
