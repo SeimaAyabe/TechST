@@ -52,6 +52,7 @@
             <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png"
                     alt="Swiper03"></div>
         </div>
+        <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
     </div>
@@ -79,6 +80,11 @@
                 prevEl: '.swiper-button-prev',
             },
             loop: true,
+            pagination: {
+                el: '.swiper-pagination',
+                type: 'bullets',
+                clickable: true,
+            },
             autoplay: {
                 delay: 8000,
                 disableOnInteraction: true
