@@ -31,12 +31,15 @@ func serve() {
 	router.Static("/views", "./views")
 
 	// HTMLファイルのパスを指定
-	router.LoadHTMLGlob("./views/static/*/**.html")
+	router.LoadHTMLGlob("./views/html/*/**.html")
 
-	//Index
+	// トップページへのリクエストに対するレスポンス
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.HTML(200, "top.html", gin.H{})
 	})
+
+	// 商品検索結果ページへのリクエストに対するレスポンス
+	router.GET("/SearchResult", controller.SearchProducts)
 
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す

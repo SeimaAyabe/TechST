@@ -1,16 +1,16 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Sample App</title>
 
     <!-- CSSフレームワーク BULMAを導入  -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
 
     <!-- 自動スライドツール Swiper(CSS)を導入  -->
-    <link rel="stylesheet" href="/views/css/swiper.css">
+    <link rel="stylesheet" href="/views/css/swiper.css" />
 </head>
 
 <body>
@@ -24,16 +24,18 @@
         </div>
         <div class="navbar-end">
             <!-- 検索バー・ボタン -->
-            <div class="navbar-item field has-addons">
-                <div class="field has-addons">
-                    <div class="control">
-                        <input class="input" type="text" name="search" placeholder="キーワード検索">
-                    </div>
-                    <div class="control">
-                        <a class="button is-info"><i class="fa fa-search"></i>検索</a>
+            <form action="/SearchResult" method="GET">
+                <div class="navbar-item field has-addons">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input class="input" type="text" name="search" placeholder="キーワード検索" />
+                        </div>
+                        <div class="control">
+                            <button class="button is-info" type="submit"><i class="fa fa-search"></i></button>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
         <div class="navbar-item">
             <!-- ログインボタン -->
@@ -45,12 +47,17 @@
     <!-- Swiper (まだ未完成)  -->
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper01.png"
-                    alt="Swiper01"></div>
-            <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper02.png"
-                    alt="Swiper02"></div>
-            <div class="swiper-slide"><img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png"
-                    alt="Swiper03"></div>
+            <div class="swiper-slide">
+                <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper01.png" alt="Swiper01" />
+            </div>
+
+            <div class="swiper-slide">
+                <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper02.png" alt="Swiper02" />
+            </div>
+
+            <div class="swiper-slide">
+                <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png" alt="Swiper03" />
+            </div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
@@ -74,20 +81,20 @@
     <!-- 自動スライドツール Swiper(JS)を導入  -->
     <script src="/views/js/swiper.js"></script>
     <script>
-        var swiper = new Swiper('.swiper-container', {
+        var swiper = new Swiper(".swiper-container", {
             navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
             },
             loop: true,
             pagination: {
-                el: '.swiper-pagination',
-                type: 'bullets',
+                el: ".swiper-pagination",
+                type: "bullets",
                 clickable: true,
             },
             autoplay: {
                 delay: 8000,
-                disableOnInteraction: true
+                disableOnInteraction: true,
             },
         });
     </script>
