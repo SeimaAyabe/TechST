@@ -55,6 +55,20 @@ func FindAllProducts() []entity.Product {
 	return products
 }
 
+// SearchProducts は 検索キーワードに該当する商品テーブルのレコードを取得する
+func SearchProducts(searchedProducts string) []entity.Product {
+	product := []entity.Product{}
+
+	db := open()
+
+	// select
+	db.Where("name LIKE ?", "%"+searchedProducts+"%").Find(&product)
+
+	defer db.Close()
+
+	return product
+}
+
 // FindProduct は 商品テーブルのレコードを１件取得する
 func FindProduct(productID int) []entity.Product {
 	product := []entity.Product{}

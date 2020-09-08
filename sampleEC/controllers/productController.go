@@ -2,7 +2,6 @@ package controller
 
 import (
 	// 文字列と基本データ型の変換パッケージ
-	"fmt"
 	strconv "strconv"
 
 	// Gin
@@ -36,8 +35,9 @@ func FetchAllProducts(c *gin.Context) {
 func SearchProducts(c *gin.Context) {
 	searchedProducts := c.Query("search")
 
-	fmt.Printf("%v\n", searchedProducts)
-	c.HTML(200, "top.html", gin.H{})
+	resultProducts := db.SearchProducts(searchedProducts)
+
+	c.HTML(200, "top.html", gin.H{"resultProducts": resultProducts})
 }
 
 // FindProduct は 指定したIDの商品情報を取得する
