@@ -1,4 +1,4 @@
-package db
+package dao
 
 import (
 	// フォーマットI/O
@@ -57,6 +57,7 @@ func FindAllProducts() []entity.Product {
 
 // SearchProducts は 検索キーワードに該当する商品テーブルのレコードを取得する
 func SearchProducts(searchedProducts string) []entity.Product {
+	// Product型の変数「product」を定義
 	product := []entity.Product{}
 
 	db := open()

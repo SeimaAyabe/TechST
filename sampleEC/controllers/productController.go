@@ -11,7 +11,7 @@ import (
 	entity "github.com/username/sampleEC/models/entity"
 
 	// DBアクセス用モジュール
-	db "github.com/username/sampleEC/models/db"
+	dao "github.com/username/sampleEC/models/dao"
 )
 
 // 商品の購入状態を定義
@@ -25,7 +25,7 @@ const (
 
 // FetchAllProducts は 全ての商品情報を取得する
 func FetchAllProducts(c *gin.Context) {
-	resultProducts := db.FindAllProducts()
+	resultProducts := dao.FindAllProducts()
 
 	// URLへのアクセスに対してJSONを返す
 	c.JSON(200, resultProducts)
@@ -33,10 +33,13 @@ func FetchAllProducts(c *gin.Context) {
 
 // SearchProducts は 検索キーワードに関連した商品情報を取得する
 func SearchProducts(c *gin.Context) {
+	// 検索キーワードをサーバー側で受け取る
 	searchedProducts := c.Query("search")
 
-	resultProducts := db.SearchProducts(searchedProducts)
+	// モデル側で検索キーワードに該当する商品テーブルのレコードを取得する
+	resultProducts := dao.SearchProducts(searchedProducts)
 
+	//　「商品検索結果」画面のHTMLを返す
 	c.HTML(200, "top.html", gin.H{"resultProducts": resultProducts})
 }
 
@@ -46,7 +49,7 @@ func FindProduct(c *gin.Context) {
 
 	productID, _ := strconv.Atoi(productIDStr)
 
-	resultProduct := db.FindProduct(productID)
+	resultProduct := dao.FindProduct(productID)
 
 	// URLへのアクセスに対してJSONを返す
 	c.JSON(200, resultProduct)
@@ -63,7 +66,7 @@ func AddProduct(c *gin.Context) {
 		State: NotPurchased,
 	}
 
-	db.InsertProduct(&product)
+	dao.InsertProduct(&product)
 }
 
 // ChangeStateProduct は 商品情報の状態を変更する
@@ -82,7 +85,7 @@ func ChangeStateProduct(c *gin.Context) {
 		changeState = NotPurchased
 	}
 
-	db.UpdateStateProduct(productID, changeState)
+	dao.UpdateStateProduct(productID, changeState)
 }
 
 // DeleteProduct は 商品情報をDBから削除する
@@ -91,5 +94,5 @@ func DeleteProduct(c *gin.Context) {
 
 	productID, _ := strconv.Atoi(productIDStr)
 
-	db.DeleteProduct(productID)
+	dao.DeleteProduct(productID)
 }

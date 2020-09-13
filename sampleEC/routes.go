@@ -33,12 +33,12 @@ func serve() {
 	// HTMLファイルのパスを指定
 	router.LoadHTMLGlob("./views/html/*/**.html")
 
-	// トップページへのリクエストに対するレスポンス
+	// 「トップ」画面へのリクエストに対するアクション
 	router.GET("/", func(ctx *gin.Context) {
 		ctx.HTML(200, "top.html", gin.H{})
 	})
 
-	// 商品検索結果ページへのリクエストに対するレスポンス
+	// 「商品検索結果」画面へのリクエストに対するアクション
 	router.GET("/SearchResult", controller.SearchProducts)
 
 	// ルーターの設定
