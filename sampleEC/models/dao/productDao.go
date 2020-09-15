@@ -13,6 +13,7 @@ import (
 
 // DB接続する
 func open() *gorm.DB {
+	// DBに関する情報を定義
 	DBMS := "mysql"
 	USER := "root"
 	PASS := "thamen1451"
@@ -55,18 +56,21 @@ func FindAllProducts() []entity.Product {
 	return products
 }
 
-// SearchProducts は 検索キーワードに該当する商品テーブルのレコードを取得する
+// SearchProducts は 検索キーワードに該当する「商品」テーブルのレコードを取得する
 func SearchProducts(searchedProducts string) []entity.Product {
-	// Product型の変数「product」を定義
+	// Product型の変数 「product」 を定義
 	product := []entity.Product{}
 
+	// DB接続
 	db := open()
 
-	// select
+	// DB内で検索キーワードの部分一致検索を行う
 	db.Where("name LIKE ?", "%"+searchedProducts+"%").Find(&product)
 
+	// DB切断 (return時に実行)
 	defer db.Close()
 
+	// 戻り値 「商品」エンティティ
 	return product
 }
 

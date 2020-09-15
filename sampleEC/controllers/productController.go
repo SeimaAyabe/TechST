@@ -36,7 +36,7 @@ func SearchProducts(c *gin.Context) {
 	// 検索キーワードをサーバー側で受け取る
 	searchedProducts := c.Query("search")
 
-	// モデル側で検索キーワードに該当する商品テーブルのレコードを取得する
+	// モデル側で検索キーワードに該当する「商品」テーブルのレコードを取得する
 	resultProducts := dao.SearchProducts(searchedProducts)
 
 	//　「商品検索結果」画面のHTMLを返す
