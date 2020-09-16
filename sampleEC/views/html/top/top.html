@@ -74,7 +74,12 @@
 
         <!-- メインエリア  -->
         <div class="column">
-            <p>{{.resultProducts}}</p>
+            <ul>{{range .resultProducts}}
+                <li>
+                    {{.Name}}
+                </li>
+                {{end}}
+            </ul>
         </div>
     </main>
 
