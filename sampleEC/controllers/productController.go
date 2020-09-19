@@ -43,6 +43,18 @@ func SearchProducts(c *gin.Context) {
 	c.HTML(200, "top.html", gin.H{"resultProducts": resultProducts})
 }
 
+// ProductDetail は 選択した商品の詳細情報を取得する
+func ProductDetail(c *gin.Context) {
+	// 「商品」テーブルの「ID」をサーバー側で受け取る
+	getProduct := c.Param("ID")
+
+	// モデル側で、選択した「商品」テーブルのレコードを1件取得する
+	productDetail := dao.ProductDetail(getProduct)
+
+	//　「商品詳細」画面のHTMLを返す
+	c.HTML(200, "top.html", gin.H{"productDetail": productDetail})
+}
+
 // FindProduct は 指定したIDの商品情報を取得する
 func FindProduct(c *gin.Context) {
 	productIDStr := c.Query("productID")

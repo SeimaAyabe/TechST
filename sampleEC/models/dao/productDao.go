@@ -74,6 +74,24 @@ func SearchProducts(searchedProducts string) []entity.Product {
 	return product
 }
 
+// ProductDetail は 選択した「商品」テーブルのレコードを取得する
+func ProductDetail(getProduct string) []entity.Product {
+	// Product型の変数 「product」 を定義
+	product := []entity.Product{}
+
+	// DB接続
+	db := open()
+
+	// DB内で検索キーワードの部分一致検索を行う
+	db.Where("id = ?", getProduct).Find(&product)
+
+	// DB切断 (return時に実行)
+	defer db.Close()
+
+	// 戻り値 「商品」エンティティ
+	return product
+}
+
 // FindProduct は 商品テーブルのレコードを１件取得する
 func FindProduct(productID int) []entity.Product {
 	product := []entity.Product{}

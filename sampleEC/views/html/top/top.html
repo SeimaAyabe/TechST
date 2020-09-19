@@ -76,8 +76,15 @@
         <div class="column">
             <ul>{{range .resultProducts}}
                 <li>
-                    {{.Name}}
-                </li>
+                    <a href="/ProductDetail/{{.ID}}">{{.Name}}
+                    </a></li>
+                {{end}}
+            </ul>
+
+            <ul>{{range .productDetail}}
+                <li>
+                    <a href="/ProductDetail/{{.ID}}">{{.Name}}
+                    </a></li>
                 {{end}}
             </ul>
         </div>

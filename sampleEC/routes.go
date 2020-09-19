@@ -41,6 +41,9 @@ func serve() {
 	// 「商品検索結果」画面へのリクエストに対するアクション
 	router.GET("/SearchResult", controller.SearchProducts)
 
+	// 「商品詳細」画面へのリクエストに対するアクション
+	router.GET("/ProductDetail/:ID", controller.ProductDetail)
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))
