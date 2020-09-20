@@ -12,8 +12,8 @@ import (
 	dao "github.com/username/sampleEC/models/dao"
 )
 
-// FetchAllProducts は 全ての商品情報を取得する
-func FetchAllProducts(c *gin.Context) {
+// Sorry は 全ての商品情報を取得する
+func Sorry(c *gin.Context) {
 	resultProducts := dao.FindAllProducts()
 
 	// URLへのアクセスに対してJSONを返す
