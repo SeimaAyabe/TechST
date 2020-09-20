@@ -2,7 +2,6 @@ package controller
 
 import (
 	// HTTPを扱うパッケージ
-
 	"net/http"
 
 	// Gin
@@ -20,13 +19,20 @@ func CreateAccount(c *gin.Context) {
 
 	// バリデーション処理
 	if err := c.Bind(&form); err != nil {
+		// 「新規会員登録」画面に戻り、エラーメッセージを表示する
 		c.HTML(http.StatusBadRequest, "signUp.html", gin.H{"err": "必須項目を入力してください"})
+
+		// 処理を強制終了させ、後に続く処理をスキップする
 		c.Abort()
 	} else {
-		/*username := c.PostForm("username")
-		password := c.PostForm("password")
-		// 登録ユーザーが重複していた場合にはじく処理
-		if err := createUser(username, password); err != nil {
+		// 入力フォーム(新規顧客情報)をサーバー側で受け取る
+		//userName := c.PostForm("username")
+		//mailAddress := c.PostForm("mailaddress")
+		// password := c.PostForm("password")
+
+		// 登録ユーザーが重複していた場合、「新規会員登録」画面に戻り、
+		// エラーメッセージを表示する
+		/*if err := createUser(username, password); err != nil {
 			c.HTML(http.StatusBadRequest, "signUp.html", gin.H{"err": err})
 		}
 		c.Redirect(302, "/")*/
