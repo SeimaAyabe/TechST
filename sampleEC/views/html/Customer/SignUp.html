@@ -76,6 +76,7 @@
 
         <!-- メインエリア  -->
         <div class="column">
+            {{ .err}}
             <form action="/CreateAccount" method="POST">
                 <label for="username">名前：</label> <input id="username" type="text" name="username">
                 <label for="mailaddress">Eメールアドレス：</label> <input id="mailaddress" type="email" name="mailaddress">

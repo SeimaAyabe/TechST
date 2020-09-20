@@ -35,7 +35,7 @@ func serve() {
 
 	// 「トップ」画面へのリクエストに対するアクション
 	router.GET("/", func(ctx *gin.Context) {
-		ctx.HTML(200, "top.html", gin.H{})
+		ctx.HTML(http.StatusOK, "top.html", gin.H{})
 	})
 
 	// 「商品検索結果」画面へのリクエストに対するアクション
@@ -46,8 +46,11 @@ func serve() {
 
 	// 「新規会員登録」画面へのリクエストに対するアクション
 	router.GET("/SignUp", func(ctx *gin.Context) {
-		ctx.HTML(200, "SignUp.html", gin.H{})
+		ctx.HTML(http.StatusOK, "signUp.html", gin.H{})
 	})
+
+	// 「会員登録」ボタン押下後のリクエストに対するアクション
+	router.POST("/CreateAccount", controller.CreateAccount)
 
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す

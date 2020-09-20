@@ -1,21 +1,35 @@
 package controller
 
 import (
-	// 文字列と基本データ型の変換パッケージ
+	// HTTPを扱うパッケージ
+
+	"net/http"
 
 	// Gin
 	"github.com/gin-gonic/gin"
 
-	// エンティティ(データベースのテーブルの行に対応)
-
+	// エンティティ (データベースのテーブルの行に対応)
+	entity "github.com/username/sampleEC/models/entity"
 	// DBアクセス用モジュール
-	dao "github.com/username/sampleEC/models/dao"
 )
 
-// Sorry は 全ての商品情報を取得する
-func Sorry(c *gin.Context) {
-	resultProducts := dao.FindAllProducts()
+// CreateAccount は 新規会員登録を行う
+func CreateAccount(c *gin.Context) {
+	// 「顧客」エンティティを変数「form」として定義
+	var form entity.Customer
 
-	// URLへのアクセスに対してJSONを返す
-	c.JSON(200, resultProducts)
+	// バリデーション処理
+	if err := c.Bind(&form); err != nil {
+		c.HTML(http.StatusBadRequest, "signUp.html", gin.H{"err": "必須項目を入力してください"})
+		c.Abort()
+	} else {
+		/*username := c.PostForm("username")
+		password := c.PostForm("password")
+		// 登録ユーザーが重複していた場合にはじく処理
+		if err := createUser(username, password); err != nil {
+			c.HTML(http.StatusBadRequest, "signUp.html", gin.H{"err": err})
+		}
+		c.Redirect(302, "/")*/
+	}
+
 }

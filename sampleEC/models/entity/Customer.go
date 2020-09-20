@@ -1,6 +1,9 @@
 package entity
 
-import "github.com/jinzhu/gorm"
+import (
+	// GORM (Go言語のORM)
+	"github.com/jinzhu/gorm"
+)
 
 // Customer は「顧客」テーブルのモデル
 type Customer struct {

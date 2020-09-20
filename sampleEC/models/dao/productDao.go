@@ -4,10 +4,10 @@ import (
 	// フォーマットI/O
 	"fmt"
 
-	// Go言語のORM
+	// GORM (Go言語のORM)
 	"github.com/jinzhu/gorm"
 
-	// エンティティ(データベースのテーブルの行に対応)
+	// エンティティ (データベースのテーブルの行に対応)
 	entity "github.com/username/sampleEC/models/entity"
 )
 
