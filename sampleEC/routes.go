@@ -44,6 +44,11 @@ func serve() {
 	// 「商品詳細」画面へのリクエストに対するアクション
 	router.GET("/ProductDetail/:ID", controller.ProductDetail)
 
+	// 「新規会員登録」画面へのリクエストに対するアクション
+	router.GET("/SignUp", func(ctx *gin.Context) {
+		ctx.HTML(200, "SignUp.html", gin.H{})
+	})
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))

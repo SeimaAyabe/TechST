@@ -39,34 +39,34 @@
         </div>
         <div class="navbar-item">
             <!-- 新規会員登録ボタン -->
-            <button class="button is-primary is-outlined" onclick="location.href='/SignUp'">新規会員登録</button>
+            <button class="button is-primary is-outlined">新規会員登録</button>
             <!-- ログインボタン -->
             <button class="button is-link is-outlined">ログイン</button>
         </div>
     </header>
 
     <!-- 本文  -->
-    <!-- Swiper (まだ未完成)  -->
-    <div class="swiper-container">
-        <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper01.png" alt="Swiper01" />
-            </div>
-
-            <div class="swiper-slide">
-                <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper02.png" alt="Swiper02" />
-            </div>
-
-            <div class="swiper-slide">
-                <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png" alt="Swiper03" />
-            </div>
-        </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
-    </div>
-
     <main class="columns">
+        <!-- Swiper (まだ未完成)  -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper01.png" alt="Swiper01" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper02.png" alt="Swiper02" />
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="https://haniwaman.com/wp-content/uploads/2018/05/swiper03.png" alt="Swiper03" />
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+
         <!-- サイドエリア  -->
         <div class="submenu column is-3">
             <aside>
@@ -76,19 +76,11 @@
 
         <!-- メインエリア  -->
         <div class="column">
-            <ul>{{range .resultProducts}}
-                <li>
-                    <a href="/ProductDetail/{{.ID}}">{{.Name}}
-                    </a></li>
-                {{end}}
-            </ul>
-
-            <ul>{{range .productDetail}}
-                <li>
-                    <a href="/ProductDetail/{{.ID}}">{{.Name}}
-                    </a></li>
-                {{end}}
-            </ul>
+            <form action="/CreateAccount" method="POST">
+                <label for="username">名前：</label> <input id="username" type="text" name="username">
+                <label for="mailaddress">Eメールアドレス：</label> <input id="mailaddress" type="email" name="mailaddress">
+                <label for="password">パスワード：</label> <input id="password" type="password" name="password">
+            </form>
         </div>
     </main>
 
