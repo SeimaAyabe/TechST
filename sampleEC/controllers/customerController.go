@@ -20,7 +20,7 @@ func CreateAccount(c *gin.Context) {
 	// バリデーション処理
 	if err := c.Bind(&form); err != nil {
 		// 「新規会員登録」画面に戻り、エラーメッセージを表示する
-		c.HTML(http.StatusBadRequest, "signUp.html", gin.H{"err": "必須項目を入力してください"})
+		c.HTML(http.StatusBadRequest, "createAccount.html", gin.H{"err": "必須項目を入力してください"})
 
 		// 処理を強制終了させ、後に続く処理をスキップする
 		c.Abort()
