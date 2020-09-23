@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
 
     <!-- 自動スライドツール Swiper(CSS)を導入  -->
+    <link rel="stylesheet" href="/views/css/header.css" />
+
+    <!-- 自動スライドツール Swiper(CSS)を導入  -->
     <link rel="stylesheet" href="/views/css/swiper.css" />
 </head>
 
@@ -24,17 +27,19 @@
         </div>
         <div class="navbar-end">
             <!-- 検索バー・ボタン -->
-            <div class="navbar-item">
-                <form action="/SearchResult" method="GET">
-                    <div class="field has-addons">
-                        <div class="control">
-                            <input class="input" type="text" name="search" placeholder="キーワード検索" />
+            <div class="search-adjust">
+                <div class="navbar-item">
+                    <form action="/SearchResult" method="GET">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input class="input" type="text" name="search" placeholder="キーワード検索" />
+                            </div>
+                            <div class="control">
+                                <button class="button is-info" type="submit"><i class="fa fa-search"></i></button>
+                            </div>
                         </div>
-                        <div class="control">
-                            <button class="button is-info" type="submit"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="navbar-item">
