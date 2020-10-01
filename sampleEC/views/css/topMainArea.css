@@ -1,4 +1,15 @@
-.top-background-image {
+.outer {
     /* 背景画像指定 */
-    background-image: url(../img/topBackground.jpg);
+    background-image: url(../img/topBackground_2.jpg);
+
+    /* 背景画像を画面に全表示させる */
+    background-size: 100% 100%;
+
+    /* どういう意味か後日コメントを残そう！！ */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* ビューポートの高さに対して、85%を要素として表示させる */
+    height: 85vh;
 }
