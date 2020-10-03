@@ -40,7 +40,7 @@ func SearchProducts(c *gin.Context) {
 	resultProducts := dao.SearchProducts(searchedProducts)
 
 	//　「商品検索結果」画面のHTMLを返す
-	c.HTML(200, "top.html", gin.H{"resultProducts": resultProducts})
+	c.HTML(200, "search-result.html", gin.H{"resultProducts": resultProducts})
 }
 
 // ProductDetail は 選択した商品の詳細情報を取得する
