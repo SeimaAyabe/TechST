@@ -60,44 +60,46 @@
             <aside class="box">
                 カサレアルは、ＸＸＸＸＸＸＸＸを実現する会社です。私たちは△△△△△△△△を通じて社会に貢献していきます。
             </aside>
-              <aside class="box menu">
-                 <p class="menu-label">
+            <aside class="box menu">
+                <p class="menu-label">
                     おすすめの一言
-                 </p>
-                 <ul class="menu-list">
-                     <li><a href="#">株式会社カサ<small>@casainc</small></a></li>
-                     <li><a href="#">レア製作所<small>@rea-product</small></a></li>
-                     <li><a href="#">オフィス・アル<small>@office-al</small></a></li>
-                  </ul>
-                  <p class="menu-label">
-                      キーワード
-                  </p>
-                  <ul class="menu-list">
-                     <li><a href="#">システム開発</a></li>
-                     <li><a class="is-active" href="#">技術教育</a>
-                         <ul>
+                </p>
+                <ul class="menu-list">
+                    <li><a href="#">株式会社カサ<small>@casainc</small></a></li>
+                    <li><a href="#">レア製作所<small>@rea-product</small></a></li>
+                    <li><a href="#">オフィス・アル<small>@office-al</small></a></li>
+                </ul>
+                <p class="menu-label">
+                    キーワード
+                </p>
+                <ul class="menu-list">
+                    <li><a href="#">システム開発</a></li>
+                    <li><a class="is-active" href="#">技術教育</a>
+                        <ul>
                            <li><a href="#">一社研修</a></li>
                            <li><a href="#">定期開催コース</a></li>
-                          </ul>
-                      </li>
-                      <li><a href="#">ソフトウェアテスティング</a></li>
-                  </ul>
-               </aside>
+                        </ul>
+                    </li>
+                    <li><a href="#">ソフトウェアテスティング</a></li>
+                </ul>
+            </aside>
         </div>
-        <!-- 商品のカード -->
-        {{range .resultProducts}}
-        <div class="ui card">
-            <a class="image" href="#">
-                <img src="/images/avatar/large/steve.jpg">
-            </a>
-            <div class="content">
-                <a class="header" href="#">{{.Name}}</a>
-                <div class="meta">
-                    <a>Last Seen 2 days ago</a>
+        <div class="column">
+            <!-- 商品のカード -->
+            {{range .resultProducts}}
+            <div class="ui card">
+                <a class="image" href="#">
+                    <img src="/images/avatar/large/steve.jpg">
+                </a>
+                <div class="content">
+                    <a class="header" href="#">{{.Name}}</a>
+                    <div class="meta">
+                        <a>Last Seen 2 days ago</a>
+                    </div>
                 </div>
             </div>
+            {{end}}
         </div>
-        {{end}}
     </main>
 
     <footer>
