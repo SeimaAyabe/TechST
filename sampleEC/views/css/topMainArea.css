@@ -5,7 +5,7 @@
     /* 背景画像を画面に全表示させる */
     background-size: 100% 100%;
 
-    /* どういう意味か後日コメントを残そう！！ */
+    /* 要素を中央に持ってくる */
     display: flex;
     justify-content: center;
     align-items: center;
