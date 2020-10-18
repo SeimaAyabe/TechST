@@ -85,19 +85,21 @@
             </aside>
         </div>
         <div class="column">
+            <!-- 検索結果情報の表示 -->
+　　　　　　　<h2>”{{.searchedProduct}}”の検索結果</h2>
             <!-- 商品のカード -->
             {{range .resultProducts}}
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg">
-                </a>
-                <div class="content">
-                    <a class="header" href="#">{{.Name}}</a>
-                    <div class="meta">
-                        <a>Last Seen 2 days ago</a>
+                <div class="ui card">
+                    <a class="image" href="#">
+                        <img src="/images/avatar/large/steve.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="header" href="#">{{.Name}}</a>
+                        <div class="meta">
+                            <a>Last Seen 2 days ago</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             {{end}}
         </div>
     </main>

@@ -34,13 +34,13 @@ func FetchAllProducts(c *gin.Context) {
 // SearchProducts は 検索キーワードに関連した商品情報を取得する
 func SearchProducts(c *gin.Context) {
 	// 検索キーワードをサーバー側で受け取る
-	searchedProducts := c.Query("search")
+	searchedProduct := c.Query("search")
 
 	// モデル側で検索キーワードに該当する「商品」テーブルのレコードを取得する
-	resultProducts := dao.SearchProducts(searchedProducts)
+	resultProducts := dao.SearchProducts(searchedProduct)
 
 	//　「商品検索結果」画面のHTMLを返す
-	c.HTML(200, "search-result.html", gin.H{"resultProducts": resultProducts})
+	c.HTML(200, "search-result.html", gin.H{"resultProducts": resultProducts, "searchedProduct": searchedProduct})
 }
 
 // ProductDetail は 選択した商品の詳細情報を取得する
