@@ -52,7 +52,7 @@ func ProductDetail(c *gin.Context) {
 	productDetail := dao.ProductDetail(getProduct)
 
 	//　「商品詳細」画面のHTMLを返す
-	c.HTML(200, "top.html", gin.H{"productDetail": productDetail})
+	c.HTML(200, "product-detail.html", gin.H{"productDetail": productDetail})
 }
 
 // FindProduct は 指定したIDの商品情報を取得する

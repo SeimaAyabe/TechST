@@ -106,10 +106,8 @@
             </aside>
         </div>
         <div class="column">
-            <!-- 検索結果情報の表示 -->
-            <h2>”{{.searchedProduct}}”の検索結果</h2>
             <!-- 商品のカード -->
-            {{range .resultProducts}}
+            {{range .productDetail}}
             <div class="ui card">
                 <a class="image" href="#">
                     <img src="/images/avatar/large/steve.jpg" />
