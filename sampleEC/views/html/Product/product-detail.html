@@ -114,9 +114,13 @@
                 </a>
                 <div class="content">
                     <a class="header" href="/ProductDetail/{{.ID}}">{{.Name}}</a>
-                    <div class="meta">
-                        <a>Last Seen 2 days ago</a>
-                    </div>
+                    <!-- 「買い物カゴへ」リンク -->
+                    <button class="button is-link is-outlined" onclick="location.href='/ShoppingCart/{{.ID}}'">
+                        カゴへ
+                        <i class=" material-icons">
+                            shopping_cart
+                        </i>
+                    </button>
                 </div>
             </div>
             {{end}}

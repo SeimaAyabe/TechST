@@ -8,7 +8,6 @@ import (
 	"github.com/gin-gonic/gin"
 
 	// エンティティ(データベースのテーブルの行に対応)
-	entity "github.com/username/sampleEC/models/entity"
 
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
@@ -68,7 +67,7 @@ func FindProduct(c *gin.Context) {
 }
 
 // AddProduct は 商品をDBへ登録する
-func AddProduct(c *gin.Context) {
+/*func AddProduct(c *gin.Context) {
 	productName := c.PostForm("productName")
 	productMemo := c.PostForm("productMemo")
 
@@ -79,7 +78,7 @@ func AddProduct(c *gin.Context) {
 	}
 
 	dao.InsertProduct(&product)
-}
+}*/
 
 // ChangeStateProduct は 商品情報の状態を変更する
 func ChangeStateProduct(c *gin.Context) {

@@ -44,6 +44,9 @@ func serve() {
 	// 「商品詳細」画面へのリクエストに対するアクション
 	router.GET("/ProductDetail/:ID", controller.ProductDetail)
 
+	// 「買い物カゴ」画面へのリクエストに対するアクション
+	router.GET("/ShoppingCart/:ID", controller.AddToShoppingCart)
+
 	// 「新規会員登録」画面へのリクエストに対するアクション
 	router.GET("/SignUp", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "createAccount.html", gin.H{})
@@ -63,7 +66,7 @@ func serve() {
 	router.GET("/fetchProduct", controller.FindProduct)
 
 	// 商品情報をDBへ登録する
-	router.POST("/addProduct", controller.AddProduct)
+	// router.POST("/addProduct", controller.AddProduct)
 
 	// 商品情報の状態を変更する
 	router.POST("/changeStateProduct", controller.ChangeStateProduct)
