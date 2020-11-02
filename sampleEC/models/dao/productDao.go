@@ -2,9 +2,8 @@ package dao
 
 import ( // フォーマットI/O
 	// GORM (Go言語のORM)
-
 	// DB共通処理
-	dbcommon "github.com/username/sampleEC/models/dbcommon"
+	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
 
 	// エンティティ (データベースのテーブルの行に対応)
 	entity "github.com/username/sampleEC/models/entity"
@@ -14,7 +13,7 @@ import ( // フォーマットI/O
 func FindAllProducts() []entity.Product {
 	products := []entity.Product{}
 
-	db := dbcommon.Open()
+	db := dbcommonlogic.Open()
 	// select
 	db.Order("ID asc").Find(&products)
 
@@ -30,7 +29,7 @@ func SearchProducts(searchedProducts string) []entity.Product {
 	product := []entity.Product{}
 
 	// DB接続
-	db := dbcommon.Open()
+	db := dbcommonlogic.Open()
 
 	// DB内で検索キーワードの部分一致検索を行う
 	db.Where("name LIKE ?", "%"+searchedProducts+"%").Find(&product)
@@ -48,7 +47,7 @@ func ProductDetail(getProduct string) []entity.Product {
 	product := []entity.Product{}
 
 	// DB接続
-	db := dbcommon.Open()
+	db := dbcommonlogic.Open()
 
 	// DB内で検索キーワードの部分一致検索を行う
 	db.Where("id = ?", getProduct).Find(&product)
@@ -64,7 +63,7 @@ func ProductDetail(getProduct string) []entity.Product {
 func FindProduct(productID int) []entity.Product {
 	product := []entity.Product{}
 
-	db := dbcommon.Open()
+	db := dbcommonlogic.Open()
 	// select
 	db.First(&product, productID)
 	defer db.Close()
@@ -76,7 +75,7 @@ func FindProduct(productID int) []entity.Product {
 func UpdateStateProduct(productID int, productState int) {
 	product := []entity.Product{}
 
-	db := dbcommon.Open()
+	db := dbcommonlogic.Open()
 	// update
 	db.Model(&product).Where("ID = ?", productID).Update("State", productState)
 	defer db.Close()
@@ -86,7 +85,7 @@ func UpdateStateProduct(productID int, productState int) {
 func DeleteProduct(productID int) {
 	product := []entity.Product{}
 
-	db := dbcommon.Open()
+	db := dbcommonlogic.Open()
 	// delete
 	db.Delete(&product, productID)
 	defer db.Close()

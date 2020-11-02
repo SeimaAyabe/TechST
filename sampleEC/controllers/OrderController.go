@@ -6,8 +6,6 @@ import (
 	// Gin
 	"github.com/gin-gonic/gin"
 
-	// エンティティ(データベースのテーブルの行に対応)
-
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
 )
