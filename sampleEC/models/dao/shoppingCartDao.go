@@ -18,11 +18,11 @@ func InsertProductToShoppingCart(productID string) {
 
 	// insert
 	var shoppingCart = entity.ShoppingCart{
-		ShoppingCartID: 4,
+		ShoppingCartID: 0,
 		ProductID:      newProductID,
 	}
 
-	db.Select("ShoppingCartId", "ProductId").Create(&shoppingCart)
+	db.Select("ShoppingCartID", "ProductID").Create(&shoppingCart)
 
 	defer db.Close()
 }
