@@ -4,6 +4,8 @@ import (
 	// 文字列と基本データ型の変換パッケージ
 
 	// Gin
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 
 	// DBアクセス用モジュール
@@ -18,6 +20,11 @@ func AddToShoppingCart(c *gin.Context) {
 	// 「買い物カゴ」テーブルに、商品IDを追加する
 	dao.InsertProductToShoppingCart(getProductID)
 
-	//　「商品詳細」画面のHTMLを返す
-	c.HTML(200, "top.html", gin.H{})
+	// 買い物カゴに入っている商品一覧を取得する
+	getProducts := dao.SelectProductInShoppingCart()
+
+	fmt.Println(getProducts)
+
+	//　「商品検索結果」画面のHTMLを返す
+	c.HTML(200, "shopping-cart.html", gin.H{"getProducts": getProducts})
 }
