@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Sample App</title>
+
+    <!-- CSSフレームワーク BULMAを導入  -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://use.fontawesome.com/releases/v5.3.1/js/all.js" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css" />
+</head>
+
+<body>
+    <!-- ヘッダー -->
+    <header>
+        <!-- Webサービスアイコン -->
+        <span class="navbar-item">
+            <span class="fa fa-language"></span>日本一のエンジニアだぜ
+        </span>
+    </header>
+
+    <!-- 本文  -->
+    <main>
+        <div class="column">
+            {{ .err}}
+            <form action="/CreateAccount" method="POST">
+                <label for="username">名前：</label>
+                <input id="username" type="text" name="username" />
+                <label for="mailaddress">Eメールアドレス：</label>
+                <input id="mailaddress" type="email" name="mailaddress" />
+                <label for="password">パスワード：</label>
+                <input id="password" type="password" name="password" />
+                <button class="button is-success is-active" type="submit">
+                    会員登録
+                </button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>

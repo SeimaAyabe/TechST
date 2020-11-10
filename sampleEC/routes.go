@@ -49,7 +49,7 @@ func serve() {
 
 	// 「新規会員登録」画面へのリクエストに対するアクション
 	router.GET("/SignUp", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "createAccount.html", gin.H{})
+		ctx.HTML(http.StatusOK, "create-account.html", gin.H{})
 	})
 
 	// 「会員登録」ボタン押下後のリクエストに対するアクション
