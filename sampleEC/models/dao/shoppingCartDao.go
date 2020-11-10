@@ -34,12 +34,12 @@ func InsertProductToShoppingCart(productID string) {
 }
 
 // SelectProductInShoppingCart は 買い物カゴに入っている商品一覧を取得する
-func SelectProductInShoppingCart() entity.ShoppingCartResult {
+func SelectProductInShoppingCart() []entity.ShoppingCartResult {
 	// DBに接続する
 	db := dbcommonlogic.Open()
 
 	// 買い物カゴ内の商品情報を取得するため、構造体を定義する
-	var results = entity.ShoppingCartResult{}
+	var results = []entity.ShoppingCartResult{}
 
 	// 買い物カゴに追加された商品情報の一覧を取得する
 	db.Table("product").Select("product.name, product.memo").Joins("left join shopping_cart on product_id = product.id").Scan(&results)
