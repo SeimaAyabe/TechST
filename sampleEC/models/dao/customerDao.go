@@ -1,49 +1,31 @@
 package dao
 
-// フォーマットI/O
-// エンティティ (データベースのテーブルの行に対応)
+import (
+	// DB共通処理
+	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
 
-// DB接続する
-/*func openCustomerTable() *gorm.DB {
-	// DBに関する情報を定義
-	DBMS := "mysql"
-	USER := "root"
-	PASS := "thamen1451"
-	PROTOCOL := "tcp(localhost:3306)"
-	DBNAME := "thamen1451"
-	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME
-	db, err := gorm.Open(DBMS, CONNECT)
+	// エンティティ (データベースのテーブルの行に対応)
+	entity "github.com/username/sampleEC/models/entity"
+)
 
-	if err != nil {
-		panic(err.Error())
+// InsertCustomer は 「顧客」テーブルに顧客情報を追加する
+func InsertCustomer(userName, mailAddress, password string) []error {
+	// DBに接続する
+	db := dbcommonlogic.Open()
+
+	// 「顧客」テーブルにレコードを入れるため、構造体を定義する
+	var customer = entity.Customer{
+		UserName:    userName,
+		MailAddress: mailAddress,
+		Password:    password,
 	}
 
-	// DBエンジンを「InnoDB」に設定
-	db.Set("gorm:table_options", "ENGINE=InnoDB")
+	// 「買い物カゴ」テーブルに商品情報を追加する
+	db.Create(&customer)
 
-	// 詳細なログを表示
-	db.LogMode(true)
-
-	// 登録するテーブル名を単数形にする（デフォルトは複数形）
-	db.SingularTable(true)
-
-	// マイグレーション（テーブルが無い時は自動生成）
-	db.AutoMigrate(&entity.Product{})
-
-	fmt.Println("db connected: ", &db)
-	return db
-}
-
-// FindAllProducts は 商品テーブルのレコードを全件取得する
-func FindAllProducts() []entity.Product {
-	products := []entity.Product{}
-
-	db := open()
-	// select
-	db.Order("ID asc").Find(&products)
-
-	// defer 関数がreturnする時に実行される
+	// DBを切断する　(return時に実行)
 	defer db.Close()
 
-	return products
-}*/
+	return nil
+
+}

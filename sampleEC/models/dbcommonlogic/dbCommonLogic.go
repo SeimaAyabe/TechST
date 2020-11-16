@@ -33,7 +33,7 @@ func Open() *gorm.DB {
 	db.SingularTable(true)
 
 	// マイグレーション（テーブルが無い時は自動生成）
-	db.AutoMigrate(&entity.Product{})
+	db.AutoMigrate(&entity.Customer{})
 
 	fmt.Println("db connected: ", &db)
 	return db
