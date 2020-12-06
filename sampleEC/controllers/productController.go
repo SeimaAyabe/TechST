@@ -11,6 +11,9 @@ import (
 
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
+
+	// サービスアクセス用モジュール
+	service "github.com/username/sampleEC/services"
 )
 
 // 商品の購入状態を定義
@@ -37,6 +40,9 @@ func SearchProducts(c *gin.Context) {
 
 	// モデル側で検索キーワードに該当する「商品」テーブルのレコードを取得する
 	resultProducts := dao.SearchProducts(searchedProduct)
+
+	// 商品の値段を表示させる為の処理
+	service.CompilePrice()
 
 	//　「商品検索結果」画面のHTMLを返す
 	c.HTML(200, "search-result.html", gin.H{"resultProducts": resultProducts, "searchedProduct": searchedProduct})
