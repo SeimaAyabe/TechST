@@ -2,9 +2,8 @@ package dao
 
 import ( // フォーマットI/O
 	// GORM (Go言語のORM)
-	// DB共通処理
-	"fmt"
 
+	// DB共通処理
 	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
 
 	// エンティティアクセル用モジュール
@@ -36,7 +35,6 @@ func SearchProducts(searchedProducts string) []entity.Product {
 	// DB内で検索キーワードの部分一致検索を行う
 	db.Where("name LIKE ?", "%"+searchedProducts+"%").Find(&product)
 
-	fmt.Println(product)
 	// DB切断 (return時に実行)
 	defer db.Close()
 
