@@ -7,7 +7,7 @@ import ( // フォーマットI/O
 
 	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
 
-	// エンティティ (データベースのテーブルの行に対応)
+	// エンティティアクセル用モジュール
 	entity "github.com/username/sampleEC/models/entity"
 )
 

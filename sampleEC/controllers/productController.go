@@ -42,7 +42,7 @@ func SearchProducts(c *gin.Context) {
 	resultProducts := dao.SearchProducts(searchedProduct)
 
 	// 商品の値段を表示させる為の処理
-	service.CompilePrice()
+	service.CompilePrice(resultProducts)
 
 	//　「商品検索結果」画面のHTMLを返す
 	c.HTML(200, "search-result.html", gin.H{"resultProducts": resultProducts, "searchedProduct": searchedProduct})
