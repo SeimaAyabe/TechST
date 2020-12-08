@@ -45,7 +45,7 @@ func serve() {
 	router.GET("/ProductDetail/:ID", controller.ProductDetail)
 
 	// 「買い物カゴ」画面へのリクエストに対するアクション
-	router.GET("/ShoppingCart/:ID", controller.AddToShoppingCart)
+	router.POST("/ShoppingCart/:ID", controller.AddToShoppingCart)
 
 	// 「新規会員登録」画面へのリクエストに対するアクション
 	router.GET("/SignUp", func(ctx *gin.Context) {
