@@ -1,7 +1,6 @@
 package services
 
 import (
-	"fmt"
 	"strconv"
 
 	// エンティティアクセル用モジュール
@@ -27,17 +26,15 @@ func CompilePrice(productList []entity.Product) {
 		// 数値をインクリメント
 		priceCount++
 
-		// 次はここからスタート
+		// カンマを入れる桁かどうかを判定
 		if priceCount%3 == 0 && priceCount != len(stringPrice) {
+			// カンマを挿入
 			commaPrice += ","
 		}
-		fmt.Println(commaPrice)
 	}
 
 	// 文字列を逆順に並び替える
 	productList[0].CompiledPrice = ReverseString(commaPrice)
-
-	fmt.Println(productList)
 
 }
 
