@@ -30,4 +30,8 @@ func JudgeShoppingCart(productID string, quantity []string) {
 		}
 	}
 
+	// 選択した商品のIDが既に「買い物カゴ」テーブル内に存在するかどうかをチェックする
+	getProductIDInShoppingCart := dao.SelectProductIDInShoppingCart(productID)
+
+	fmt.Println(getProductIDInShoppingCart)
 }
