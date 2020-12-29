@@ -25,7 +25,7 @@ func AddToShoppingCart(c *gin.Context) {
 	fmt.Println(getQuantity)
 
 	// 「買い物カゴ」テーブル内に、既に該当の商品が存在する場合、数量を加算する為の処理
-	service.JudgeShoppingCart()
+	service.JudgeShoppingCart(getProductID, getQuantity)
 
 	// 「買い物カゴ」テーブルに、商品IDを追加する
 	dao.InsertProductToShoppingCart(getProductID)
