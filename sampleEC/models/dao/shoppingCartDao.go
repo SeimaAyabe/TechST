@@ -33,6 +33,24 @@ func InsertProductToShoppingCart(productID string) {
 
 }
 
+// SelectAllInShoppingCart は 買い物カゴ一覧を取得する
+func SelectAllInShoppingCart() []entity.ShoppingCart {
+	// DBに接続する
+	db := dbcommonlogic.Open()
+
+	// 買い物カゴの情報を取得するため、構造体を定義する
+	var results = []entity.ShoppingCart{}
+
+	// 買い物カゴ一覧を取得する
+	db.Table("shopping_cart").Select("shopping_cart.product_id, shopping_cart.quantity").Scan(&results)
+
+	// DBを切断する　(return時に実行)
+	defer db.Close()
+
+	// 戻り値 「買い物カゴ一覧」
+	return results
+}
+
 // SelectProductInShoppingCart は 買い物カゴに入っている商品一覧を取得する
 func SelectProductInShoppingCart() []entity.ShoppingCartResult {
 	// DBに接続する
