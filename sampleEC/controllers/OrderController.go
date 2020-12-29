@@ -14,8 +14,12 @@ import (
 
 // AddToShoppingCart は 買い物カゴへ商品を追加する
 func AddToShoppingCart(c *gin.Context) {
-	// 「商品」テーブルの「ID」をサーバー側で受け取る
+	// 「商品」テーブルの「ID」と、商品の数量をサーバー側で受け取る
+	c.Request.ParseForm()
 	getProductID := c.Param("ID")
+	getQuantity := c.Request.Form["cnt"]
+
+	fmt.Println(getQuantity)
 
 	// 「買い物カゴ」テーブルに、商品IDを追加する
 	dao.InsertProductToShoppingCart(getProductID)
