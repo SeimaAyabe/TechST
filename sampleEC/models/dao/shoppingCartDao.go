@@ -11,22 +11,24 @@ import (
 	entity "github.com/username/sampleEC/models/entity"
 )
 
-// InsertProductToShoppingCart は 「買い物カゴ」テーブルに商品を追加する
-func InsertProductToShoppingCart(productID string) {
+// InsertProductToShoppingCart は 「買い物カゴ」テーブルにレコードを追加する
+func InsertProductToShoppingCart(productID string, quantity []string) {
 	// DBに接続する
 	db := dbcommonlogic.Open()
 
-	// String型をint型に変換する
+	// 文字列を数値に変換する
 	newProductID, _ := strconv.Atoi(productID)
+	compiledQuantity, _ := strconv.Atoi(quantity[0])
 
 	// 「買い物カゴ」テーブルにレコードを入れるため、構造体を定義する
 	var shoppingCart = entity.ShoppingCart{
 		ShoppingCartID: 0,
 		ProductID:      newProductID,
+		Quantity:       compiledQuantity,
 	}
 
 	// 「買い物カゴ」テーブルに商品情報を追加する
-	db.Select("ShoppingCartID", "ProductID").Create(&shoppingCart)
+	db.Select("ShoppingCartID", "ProductID", "Quantity").Create(&shoppingCart)
 
 	// DBを切断する
 	defer db.Close()
