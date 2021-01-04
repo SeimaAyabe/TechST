@@ -55,6 +55,11 @@ func serve() {
 	// 「会員登録」ボタン押下後のリクエストに対するアクション
 	router.POST("/CreateAccount", controller.CreateAccount)
 
+	// 「ログイン」画面へのリクエストに対するアクション
+	router.GET("/Login", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "login.html", gin.H{})
+	})
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))

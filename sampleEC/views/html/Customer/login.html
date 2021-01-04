@@ -22,17 +22,16 @@
     <!-- 本文  -->
     <main>
         <div class="column">
-            {{ .err}}
-            <form action="/CreateAccount" method="POST">
-                <label for="username">名前：</label>
-                <input id="username" type="text" name="username" />
-                <label for="mailaddress">Eメールアドレス：</label>
-                <input id="mailaddress" type="email" name="mailaddress" />
-                <label for="password">パスワード：</label>
-                <input id="password" type="password" name="password" />
-                <button class="button is-success is-active" type="submit">
-                    会員登録
-                </button>
+            <form class="form-signin" role="form" method="POST" action="./signin" onsubmit="DisableButton();">
+                <h2 class="form-signin-heading">ログイン</h2>
+
+                メールアドレス
+                <input name="email" type="text" class="form-control" placeholder="Email address" required>
+                パスワード
+                <input name="password" type="password" class="form-control" placeholder="Password" required>
+
+                <br>
+                <button id="submitbutton" class="btn btn-lg btn-warning btn-block" type="submit">ログイン</button>
             </form>
         </div>
     </main>
