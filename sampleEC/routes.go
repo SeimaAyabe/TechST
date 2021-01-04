@@ -60,6 +60,9 @@ func serve() {
 		ctx.HTML(http.StatusOK, "login.html", gin.H{})
 	})
 
+	// 「ログイン」ボタン(「ログイン」画面)押下後のリクエストに対するアクション
+	router.POST("/Signin", controller.Signin)
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))

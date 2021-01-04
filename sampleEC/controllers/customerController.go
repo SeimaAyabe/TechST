@@ -43,3 +43,11 @@ func CreateAccount(c *gin.Context) {
 	}
 
 }
+
+// Signin は ログイン処理を行う
+func Signin(c *gin.Context) {
+
+	// 「トップ」画面にリダイレクトする
+	c.Redirect(http.StatusFound, "/")
+
+}
