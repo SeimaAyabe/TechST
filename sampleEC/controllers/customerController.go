@@ -12,6 +12,9 @@ import (
 
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
+
+	// サービスアクセス用モジュール
+	service "github.com/username/sampleEC/services"
 )
 
 // CreateAccount は 新規会員登録を行う
@@ -46,6 +49,12 @@ func CreateAccount(c *gin.Context) {
 
 // Signin は ログイン処理を行う
 func Signin(c *gin.Context) {
+	// 「ログイン」画面にて入力された値をサーバー側で受け取る
+	mailAddress := c.PostForm("mailaddress")
+	password := c.PostForm("password")
+
+	// 入力された情報が、「顧客」テーブルのデータ内に存在するかをチェックする処理
+	service.IsLoginCustomerDataExist(mailAddress, password)
 
 	// 「トップ」画面にリダイレクトする
 	c.Redirect(http.StatusFound, "/")

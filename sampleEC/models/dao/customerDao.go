@@ -8,6 +8,25 @@ import (
 	entity "github.com/username/sampleEC/models/entity"
 )
 
+// SelectCustomer は 「顧客」テーブルから顧客情報を取得する
+func SelectCustomer(mailAddress, password string) []entity.Customer {
+	// Customer型の変数 「customer」 を定義
+	customer := []entity.Customer{}
+
+	// DBに接続する
+	db := dbcommonlogic.Open()
+
+	// DB内で検索キーワードの部分一致検索を行う
+	db.Where("mail_address = ? AND password = ?", mailAddress, password).Find(&customer)
+
+	// DB切断 (return時に実行)
+	defer db.Close()
+
+	// 戻り値 「顧客」エンティティ
+	return customer
+
+}
+
 // InsertCustomer は 「顧客」テーブルに顧客情報を追加する
 func InsertCustomer(userName, mailAddress, password string) []error {
 	// DBに接続する

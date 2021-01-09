@@ -4,8 +4,6 @@ import (
 	"fmt"
 
 	"github.com/jinzhu/gorm"
-
-	"github.com/username/sampleEC/models/entity"
 )
 
 // Open DBに接続するメソッド
@@ -33,7 +31,7 @@ func Open() *gorm.DB {
 	db.SingularTable(true)
 
 	// マイグレーション（テーブルが無い時は自動生成）
-	db.AutoMigrate(&entity.Customer{})
+	// db.AutoMigrate(&entity.Customer{})
 
 	fmt.Println("db connected: ", &db)
 	return db
