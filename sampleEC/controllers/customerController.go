@@ -54,7 +54,7 @@ func Signin(c *gin.Context) {
 	password := c.PostForm("password")
 
 	// 入力された情報が、「顧客」テーブルのデータ内に存在するかをチェックする処理
-	service.IsLoginCustomerDataExist(mailAddress, password)
+	service.IsLoginCustomerDataExist(c, mailAddress, password)
 
 	// 「トップ」画面にリダイレクトする
 	c.Redirect(http.StatusFound, "/")

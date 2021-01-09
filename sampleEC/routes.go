@@ -10,6 +10,10 @@ import (
 	// Gin
 	"github.com/gin-gonic/gin"
 
+	// セッションのパッケージ
+	"github.com/gin-contrib/sessions"
+	"github.com/gin-contrib/sessions/cookie"
+
 	// MySQL用ドライバ
 	_ "github.com/jinzhu/gorm/dialects/mysql"
 
@@ -32,6 +36,10 @@ func serve() {
 
 	// HTMLファイルのパスを指定
 	router.LoadHTMLGlob("./views/html/*/**.html")
+
+	// セッションの設定
+	store := cookie.NewStore([]byte("secret"))
+	router.Use(sessions.Sessions("mysession", store))
 
 	// 「トップ」画面へのリクエストに対するアクション
 	router.GET("/", func(ctx *gin.Context) {
