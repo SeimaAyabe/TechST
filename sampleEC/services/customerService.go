@@ -22,9 +22,15 @@ func IsLoginCustomerDataExist(c *gin.Context, mailAddress, password string) {
 
 // setSessionInfo は セッション情報として、データをセットする処理
 func setSessionInfo(c *gin.Context, customer []entity.Customer) {
+	// セッションモジュールをセットする
 	session := sessions.Default(c)
+
+	// セッションにデータを保存する
 	session.Set("alive", true)
 	session.Set("userName", customer[0].UserName)
+
+	// セッション情報をコミットする(まだ未導入)
+	// session.Clear()
 	// session.Save()
 	if session.Get("alive") == true {
 		fmt.Println(session)

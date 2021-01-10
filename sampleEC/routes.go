@@ -42,9 +42,7 @@ func serve() {
 	router.Use(sessions.Sessions("sampleECSession", store))
 
 	// 「トップ」画面へのリクエストに対するアクション
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "top.html", gin.H{})
-	})
+	router.GET("/", controller.SessionCheck)
 
 	// 「商品検索結果」画面へのリクエストに対するアクション
 	router.GET("/SearchResult", controller.SearchProducts)

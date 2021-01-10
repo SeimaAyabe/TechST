@@ -2,9 +2,11 @@ package controller
 
 import (
 	// HTTPを扱うパッケージ
+	"fmt"
 	"net/http"
 
 	// Gin
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 
 	// エンティティ (データベースのテーブルの行に対応)
@@ -58,5 +60,30 @@ func Signin(c *gin.Context) {
 
 	// 「トップ」画面にリダイレクトする
 	c.Redirect(http.StatusFound, "/")
+
+}
+
+// SessionCheck は セッションにデータが保持されているかどうかを判定する処理
+func SessionCheck(c *gin.Context) {
+	// SessionInfo型(構造体)の変数 「LoginInfo」 を定義
+	var LoginInfo entity.SessionInfo
+
+	// デフォルトで "false" を設定する
+	LoginInfo.IsSessionAlive = false
+
+	// セッションモジュールをセットする
+	session := sessions.Default(c)
+
+	// セッションから「ユーザ名」を取得する
+	LoginInfo.UserName = session.Get("userName")
+	fmt.Println(LoginInfo.UserName)
+
+	// セッションが保存されていた場合、セッションフラグに"true"をセットする
+	if LoginInfo.UserName != nil {
+		LoginInfo.IsSessionAlive = true
+	}
+
+	//　「トップ」画面のHTMLを返す
+	c.HTML(200, "top.html", gin.H{"loginInfo": LoginInfo})
 
 }

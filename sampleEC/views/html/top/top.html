@@ -64,12 +64,21 @@
             </div>
         </div>
         <div class="navbar-item">
+            {{if .loginInfo.IsSessionAlive}}
+            <!-- マイページボタン -->
+            <button class="button is-primary is-outlined" onclick="location.href='/SignUp'">
+                マイページ
+            </button>
+            <!-- ログアウトボタン -->
+            <button class="button is-link is-outlined" onclick="location.href='/Login'">ログアウト</button>
+            {{else}}
             <!-- 新規会員登録ボタン -->
             <button class="button is-primary is-outlined" onclick="location.href='/SignUp'">
                 新規会員登録
             </button>
             <!-- ログインボタン -->
             <button class="button is-link is-outlined" onclick="location.href='/Login'">ログイン</button>
+            {{end}}
         </div>
     </header>
 
