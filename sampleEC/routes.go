@@ -39,7 +39,7 @@ func serve() {
 
 	// セッションの設定
 	store := cookie.NewStore([]byte("secret"))
-	router.Use(sessions.Sessions("mysession", store))
+	router.Use(sessions.Sessions("sampleECSession", store))
 
 	// 「トップ」画面へのリクエストに対するアクション
 	router.GET("/", func(ctx *gin.Context) {

@@ -24,5 +24,9 @@ func IsLoginCustomerDataExist(c *gin.Context, mailAddress, password string) {
 func setSessionInfo(c *gin.Context, customer []entity.Customer) {
 	session := sessions.Default(c)
 	session.Set("alive", true)
-	fmt.Println(session)
+	session.Set("userName", customer[0].UserName)
+	// session.Save()
+	if session.Get("alive") == true {
+		fmt.Println(session)
+	}
 }
