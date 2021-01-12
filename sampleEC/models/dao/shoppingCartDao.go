@@ -2,6 +2,7 @@ package dao
 
 import (
 	// 型変換パッケージ
+	"fmt"
 	"strconv"
 
 	// DB共通処理
@@ -78,7 +79,9 @@ func SelectProductInShoppingCart() []entity.ShoppingCartResult {
 	var results = []entity.ShoppingCartResult{}
 
 	// 買い物カゴに追加された商品情報の一覧を取得する
-	db.Table("product").Select("product.name, product.price").Joins("left join shopping_cart on product_id = product.id").Scan(&results)
+	db.Table("product").Select("product.name, product.price, shopping_cart.quantity").Joins("inner join shopping_cart on product_id = product.id").Scan(&results)
+
+	fmt.Println(results)
 
 	// DBを切断する　(return時に実行)
 	defer db.Close()
