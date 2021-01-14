@@ -27,6 +27,7 @@ func setSessionInfo(c *gin.Context, customer []entity.Customer) {
 
 	// セッションにデータを保存する
 	session.Set("alive", true)
+	session.Set("userId", customer[0].ID)
 	session.Set("userName", customer[0].UserName)
 
 	// セッション情報をコミットする(まだ未導入)

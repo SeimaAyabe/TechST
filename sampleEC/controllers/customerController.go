@@ -87,3 +87,24 @@ func SessionCheck(c *gin.Context) {
 	c.HTML(200, "top.html", gin.H{"loginInfo": LoginInfo})
 
 }
+
+// GetAccountInfo は マイページを表示させるために必要な会員情報を取得する処理
+func GetAccountInfo(c *gin.Context) {
+	// SessionInfo型(構造体)の変数 「LoginInfo」 を定義
+	var LoginInfo entity.SessionInfo
+
+	// (こっちは後で消すよ！！)デフォルトで "false" を設定する
+	LoginInfo.IsSessionAlive = false
+
+	// セッションモジュールをセットする
+	session := sessions.Default(c)
+
+	// セッションから「ユーザID」を取得する
+	LoginInfo.UserID = session.Get("userId")
+
+	fmt.Println(LoginInfo.UserID)
+
+	//　「トップ」画面のHTMLを返す
+	c.HTML(200, "top.html", gin.H{"loginInfo": LoginInfo})
+
+}
