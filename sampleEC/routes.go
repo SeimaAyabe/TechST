@@ -69,6 +69,9 @@ func serve() {
 	// 「ログイン」ボタン(「ログイン」画面)押下後のリクエストに対するアクション
 	router.POST("/Signin", controller.Signin)
 
+	// 「ログアウト」ボタン(「トップ」画面)押下後のリクエストに対するアクション
+	router.GET("/Logout", controller.Logout)
+
 	// 「マイページ」画面へのリクエストに対するアクション
 	router.GET("/Mypage", controller.GetAccountInfo)
 

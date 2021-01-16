@@ -63,6 +63,16 @@ func Signin(c *gin.Context) {
 
 }
 
+// Logout は ログアウト処理を行う
+func Logout(c *gin.Context) {
+	// セッションを削除する処理
+	service.DeleteSessionInfo(c)
+
+	// 「トップ」画面にリダイレクトする
+	c.Redirect(http.StatusFound, "/")
+
+}
+
 // SessionCheck は セッションにデータが保持されているかどうかを判定する処理
 func SessionCheck(c *gin.Context) {
 	// SessionInfo型(構造体)の変数 「LoginInfo」 を定義

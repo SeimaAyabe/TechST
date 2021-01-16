@@ -30,10 +30,16 @@ func setSessionInfo(c *gin.Context, customer []entity.Customer) {
 	session.Set("userId", customer[0].ID)
 	session.Set("userName", customer[0].UserName)
 
-	// セッション情報をコミットする(まだ未導入)
-	// session.Clear()
-	// session.Save()
-	if session.Get("alive") == true {
-		fmt.Println(session)
-	}
+	// セッション情報をコミットする
+	session.Save()
+}
+
+// DeleteSessionInfo は セッションを削除する処理
+func DeleteSessionInfo(c *gin.Context) {
+	// セッションモジュールをセットする
+	session := sessions.Default(c)
+
+	// セッションを削除する
+	session.Clear()
+	session.Save()
 }
