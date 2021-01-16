@@ -53,6 +53,11 @@ func serve() {
 	// 「買い物カゴ」画面へのリクエストに対するアクション
 	router.POST("/ShoppingCart/:ID", controller.AddToShoppingCart)
 
+	// 「レジ」画面へのリクエストに対するアクション
+	router.GET("/CashRegister", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "cash-register.html", gin.H{})
+	})
+
 	// 「新規会員登録」画面へのリクエストに対するアクション
 	router.GET("/SignUp", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "create-account.html", gin.H{})

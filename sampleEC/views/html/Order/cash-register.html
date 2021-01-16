@@ -106,33 +106,8 @@
             </aside>
         </div>
         <div class="column">
-            <!-- "買い物カゴ"のラベル -->
-            <h2>買い物カゴ</h2>
-            <!-- 商品のカード -->
-            {{range .getProducts}}
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg" />
-                </a>
-                <div class="content">
-                    {{.Name}}
-                    価格
-                    {{.Price}}
-                    数量
-                    <select name="cnt">
-                        <option value="1" selected>1</option>　/*　←初期値は「selected」を入れておく　*/
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    小計
-                    {{.Subtotal}}
-                </div>
-            </div>
-            {{end}}
-            <!-- レジボタン -->
-            <button class="button is-link is-outlined" onclick="location.href='/CashRegister'">レジ</button>
+            <!-- "レジ"のラベル -->
+            <h2>レジ</h2>
         </div>
     </main>
 
