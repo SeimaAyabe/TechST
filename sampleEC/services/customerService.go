@@ -12,7 +12,7 @@ import (
 // IsLoginCustomerDataExist は 入力された情報が、「顧客」テーブルのデータ内に存在するかをチェックする処理
 func IsLoginCustomerDataExist(c *gin.Context, mailAddress, password string) {
 	// 入力された情報が、「顧客」テーブルのデータ内に存在するかをチェックする
-	getCustomer := dao.SelectCustomer(mailAddress, password)
+	getCustomer := dao.SelectCustomerByLoginInfo(mailAddress, password)
 
 	if len(getCustomer) == 1 {
 		fmt.Println(getCustomer[0].MailAddress)

@@ -94,7 +94,7 @@ func GetAccountInfo(c *gin.Context) {
 	var LoginInfo entity.SessionInfo
 
 	// (こっちは後で消すよ！！)デフォルトで "false" を設定する
-	LoginInfo.IsSessionAlive = false
+	// LoginInfo.IsSessionAlive = false
 
 	// セッションモジュールをセットする
 	session := sessions.Default(c)
@@ -102,9 +102,12 @@ func GetAccountInfo(c *gin.Context) {
 	// セッションから「ユーザID」を取得する
 	LoginInfo.UserID = session.Get("userId")
 
-	fmt.Println(LoginInfo.UserID)
+	// 「ユーザID」を元に、「顧客」テーブルのデータ内に存在するかをチェックする
+	getCustomer := dao.SelectCustomerByUserID(LoginInfo.UserID)
+
+	fmt.Println(getCustomer)
 
 	//　「トップ」画面のHTMLを返す
-	c.HTML(200, "top.html", gin.H{"loginInfo": LoginInfo})
+	c.HTML(200, "mypage.html", gin.H{"customer": getCustomer})
 
 }
