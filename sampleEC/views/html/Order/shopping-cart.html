@@ -116,6 +116,8 @@
                 </a>
                 <div class="content">
                     {{.Name}}
+                    価格
+                    {{.Price}}
                     数量
                     <select name="cnt">
                         <option value="1" selected>1</option>　/*　←初期値は「selected」を入れておく　*/
@@ -124,7 +126,8 @@
                         <option value="4">4</option>
                         <option value="5">5</option>
                     </select>
-                    {{.Price}}
+                    小計
+                    {{.Subtotal}}
                 </div>
             </div>
             {{end}}

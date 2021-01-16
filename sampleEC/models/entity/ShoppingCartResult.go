@@ -6,4 +6,5 @@ type ShoppingCartResult struct {
 	Name     string
 	Price    int
 	Quantity int
+	Subtotal int
 }

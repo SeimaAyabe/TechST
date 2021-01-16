@@ -72,7 +72,7 @@ func UpdateQuantityInShoppingCart(productID string, addedQuantity int) {
 }
 
 // SelectProductInShoppingCart は 買い物カゴに入っている商品一覧を取得する
-func SelectProductInShoppingCart() ([]entity.ShoppingCartResult, int) {
+func SelectProductInShoppingCart() []entity.ShoppingCartResult {
 	// DBに接続する
 	db := dbcommonlogic.Open()
 
@@ -85,17 +85,20 @@ func SelectProductInShoppingCart() ([]entity.ShoppingCartResult, int) {
 	fmt.Println(results)
 
 	// 小計を算出し、「買い物カゴ」テーブルに挿入する
-	subtotal := InsertSubtotalToShoppingCart(db, results)
+	InsertSubtotalToShoppingCart(db, results)
+
+	// 再び買い物カゴ内の商品情報を取得する
+	products := SelectProductInShoppingCartAgain(db)
 
 	// DBを切断する　(return時に実行)
 	defer db.Close()
 
 	// 戻り値 「買い物カゴ内の商品情報一覧」
-	return results, subtotal
+	return products
 }
 
 // InsertSubtotalToShoppingCart は 小計を算出し、「買い物カゴ」テーブルに挿入する
-func InsertSubtotalToShoppingCart(db *gorm.DB, results []entity.ShoppingCartResult) int {
+func InsertSubtotalToShoppingCart(db *gorm.DB, results []entity.ShoppingCartResult) {
 	// 小計を算出
 	subtotal := results[0].Price * results[0].Quantity
 
@@ -106,7 +109,18 @@ func InsertSubtotalToShoppingCart(db *gorm.DB, results []entity.ShoppingCartResu
 	db.Model(&shoppingCart).Where("product_id = ?", results[0].ID).Update("subtotal", subtotal)
 
 	fmt.Println(subtotal)
+}
 
-	// 戻り値 「小計」
-	return subtotal
+// SelectProductInShoppingCartAgain は 再び買い物カゴに入っている商品一覧を取得する
+func SelectProductInShoppingCartAgain(db *gorm.DB) []entity.ShoppingCartResult {
+	// 買い物カゴ内の商品情報を取得するため、構造体を定義する
+	var products = []entity.ShoppingCartResult{}
+
+	// 買い物カゴに追加された商品情報の一覧を取得する
+	db.Table("product").Select("product.id, product.name, product.price, shopping_cart.quantity, shopping_cart.subtotal").Joins("inner join shopping_cart on product_id = product.id").Scan(&products)
+
+	fmt.Println(products)
+
+	// 戻り値 「買い物カゴ内の商品情報一覧」
+	return products
 }
