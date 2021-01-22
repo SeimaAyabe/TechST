@@ -80,6 +80,11 @@ func serve() {
 	// 「マイページ」画面へのリクエストに対するアクション
 	router.GET("/Mypage", controller.GetAccountInfo)
 
+	// 「お届け先新規作成」画面へのリクエストに対するアクション
+	router.GET("/CreateDeliveryDestination", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "create-delivery-destination.html", gin.H{})
+	})
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))
