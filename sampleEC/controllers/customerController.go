@@ -49,6 +49,41 @@ func CreateAccount(c *gin.Context) {
 
 }
 
+// CreateDeliveryDestination は お届け先の新規登録を行う
+func CreateDeliveryDestination(c *gin.Context) {
+	// 「お届け先」エンティティを変数「form」として定義
+	var form entity.DeliveryDestination
+
+	// SessionInfo型(構造体)の変数 「LoginInfo」 を定義
+	var LoginInfo entity.SessionInfo
+
+	// セッションモジュールをセットする
+	session := sessions.Default(c)
+
+	// セッションから「ユーザID」を取得する
+	LoginInfo.UserID = session.Get("userId")
+
+	// バリデーション処理
+	if err := c.Bind(&form); err != nil {
+		// 「お届け先新規作成」画面に戻り、エラーメッセージを表示する
+		c.HTML(http.StatusBadRequest, "create-delivery-destination.html", gin.H{"err": "必須項目を入力してください"})
+
+		// 処理を強制終了させ、後に続く処理をスキップする
+		c.Abort()
+	} else {
+		// 入力フォーム(新規顧客情報)をサーバー側で受け取る
+		zipCode := c.PostForm("zipcode")
+		address := c.PostForm("address")
+		telephoneNumber := c.PostForm("telephonenumber")
+
+		dao.InsertDeliveryDestination(LoginInfo.UserID, zipCode, address, telephoneNumber)
+
+		// 「トップ」画面にリダイレクトする
+		c.Redirect(http.StatusFound, "/")
+	}
+
+}
+
 // Signin は ログイン処理を行う
 func Signin(c *gin.Context) {
 	// 「ログイン」画面にて入力された値をサーバー側で受け取る
@@ -102,9 +137,6 @@ func SessionCheck(c *gin.Context) {
 func GetAccountInfo(c *gin.Context) {
 	// SessionInfo型(構造体)の変数 「LoginInfo」 を定義
 	var LoginInfo entity.SessionInfo
-
-	// (こっちは後で消すよ！！)デフォルトで "false" を設定する
-	// LoginInfo.IsSessionAlive = false
 
 	// セッションモジュールをセットする
 	session := sessions.Default(c)

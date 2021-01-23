@@ -2,6 +2,8 @@ package dao
 
 import (
 	// DB共通処理
+	"strconv"
+
 	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
 
 	// エンティティ (データベースのテーブルの行に対応)
@@ -65,5 +67,30 @@ func InsertCustomer(userName, mailAddress, password string) []error {
 	defer db.Close()
 
 	return nil
+
+}
+
+// InsertDeliveryDestination は 「お届け先」テーブルにお届け先情報を追加する
+func InsertDeliveryDestination(userID interface{}, zipCode, address, telephoneNumber string) {
+	// DBに接続する
+	db := dbcommonlogic.Open()
+
+	// 文字列を数値に変換する
+	compiledZipCode, _ := strconv.Atoi(zipCode)
+
+	// 「お届け先」テーブルにレコードを入れるため、構造体を定義する
+	var deliveryDestination = entity.DeliveryDestination{
+		ID:              0,
+		UserID:          userID,
+		ZipCode:         compiledZipCode,
+		Address:         address,
+		TelephoneNumber: telephoneNumber,
+	}
+
+	// 「お届け先」テーブルにお届け先情報を追加する
+	db.Create(&deliveryDestination)
+
+	// DBを切断する　(return時に実行)
+	defer db.Close()
 
 }

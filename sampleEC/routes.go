@@ -85,6 +85,9 @@ func serve() {
 		ctx.HTML(http.StatusOK, "create-delivery-destination.html", gin.H{})
 	})
 
+	// 「新規登録」(お届け先)ボタン押下後のリクエストに対するアクション
+	router.POST("/CreateToDeliveryDestinationTable", controller.CreateDeliveryDestination)
+
 	// ルーターの設定
 	// URLへのアクセスに対して静的ページを返す
 	router.StaticFS("/shoppingapp", http.Dir("./views/vuetify"))
