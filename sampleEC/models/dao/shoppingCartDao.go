@@ -2,10 +2,10 @@ package dao
 
 import (
 	// 型変換パッケージ
-	"fmt"
-	"strconv"
 
 	// DB共通処理
+	"strconv"
+
 	"github.com/jinzhu/gorm"
 	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
 
@@ -72,7 +72,7 @@ func UpdateQuantityInShoppingCart(productID string, addedQuantity int) {
 }
 
 // SelectProductInShoppingCart は 買い物カゴに入っている商品一覧を取得する
-func SelectProductInShoppingCart() []entity.ShoppingCartResult {
+func SelectProductInShoppingCart(productID string) []entity.ShoppingCartResult {
 	// DBに接続する
 	db := dbcommonlogic.Open()
 
@@ -80,9 +80,7 @@ func SelectProductInShoppingCart() []entity.ShoppingCartResult {
 	var results = []entity.ShoppingCartResult{}
 
 	// 買い物カゴに追加された商品情報の一覧を取得する
-	db.Table("product").Select("product.id, product.name, product.price, shopping_cart.quantity").Joins("inner join shopping_cart on product_id = product.id").Scan(&results)
-
-	fmt.Println(results)
+	db.Table("product").Select("product.id, product.name, product.price, shopping_cart.quantity").Joins("inner join shopping_cart on product_id = product.id").Where("product_id = ?", productID).Scan(&results)
 
 	// 小計を算出し、「買い物カゴ」テーブルに挿入する
 	InsertSubtotalToShoppingCart(db, results)
@@ -107,8 +105,6 @@ func InsertSubtotalToShoppingCart(db *gorm.DB, results []entity.ShoppingCartResu
 
 	// 「買い物カゴ」テーブル内の「小計」を更新する
 	db.Model(&shoppingCart).Where("product_id = ?", results[0].ID).Update("subtotal", subtotal)
-
-	fmt.Println(subtotal)
 }
 
 // SelectProductInShoppingCartAgain は 再び買い物カゴに入っている商品一覧を取得する
@@ -118,8 +114,6 @@ func SelectProductInShoppingCartAgain(db *gorm.DB) []entity.ShoppingCartResult {
 
 	// 買い物カゴに追加された商品情報の一覧を取得する
 	db.Table("product").Select("product.id, product.name, product.price, shopping_cart.quantity, shopping_cart.subtotal").Joins("inner join shopping_cart on product_id = product.id").Scan(&products)
-
-	fmt.Println(products)
 
 	// 戻り値 「買い物カゴ内の商品情報一覧」
 	return products

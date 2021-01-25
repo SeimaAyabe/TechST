@@ -25,7 +25,7 @@ func AddToShoppingCart(c *gin.Context) {
 	service.JudgeShoppingCart(getProductID, getQuantity)
 
 	// 買い物カゴに入っている商品一覧を取得する
-	getProducts := dao.SelectProductInShoppingCart()
+	getProducts := dao.SelectProductInShoppingCart(getProductID)
 
 	//　「商品検索結果」画面のHTMLを返す
 	c.HTML(200, "shopping-cart.html", gin.H{"getProducts": getProducts})
