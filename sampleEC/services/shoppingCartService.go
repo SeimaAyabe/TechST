@@ -8,6 +8,7 @@ import (
 
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
+	entity "github.com/username/sampleEC/models/entity"
 )
 
 // JudgeShoppingCart は 商品データが被らないように挿入させる為の処理
@@ -35,4 +36,18 @@ func JudgeShoppingCart(productID string, quantity []string) {
 		dao.UpdateQuantityInShoppingCart(productID, compiledQuantity)
 	}
 
+}
+
+// GetProductTotal は 合計金額を取得する処理
+func GetProductTotal(product []entity.ShoppingCartResult) int {
+	// 数値型で「合計金額」を定義する
+	var productTotal int
+
+	// 買い物カゴに入っている商品の数分、処理を繰り返す
+	for i := 0; i < len(product); i++ {
+		productTotal += product[i].Subtotal
+	}
+
+	// 戻り値 「合計金額」
+	return productTotal
 }
