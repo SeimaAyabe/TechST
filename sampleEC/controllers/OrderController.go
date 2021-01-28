@@ -7,6 +7,8 @@ import (
 
 	"github.com/gin-gonic/gin"
 
+	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
+
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
 
@@ -32,4 +34,23 @@ func AddToShoppingCart(c *gin.Context) {
 
 	//　「商品検索結果」画面のHTMLを返す
 	c.HTML(200, "shopping-cart.html", gin.H{"getProducts": getProducts, "productTotal": productTotal})
+}
+
+// CashRegister は 「レジ」画面へ遷移する際の処理
+func CashRegister(c *gin.Context) {
+	// DBに接続する
+	db := dbcommonlogic.Open()
+
+	// 買い物カゴ内の商品情報を取得する
+	products := dao.SelectProductInShoppingCartAgain(db)
+
+	// DBを切断する
+	db.Close()
+
+	// 合計金額を取得する
+	productTotal := service.GetProductTotal(products)
+
+	//　「商品検索結果」画面のHTMLを返す
+	c.HTML(200, "cash-register.html", gin.H{"products": products, "productTotal": productTotal})
+
 }
