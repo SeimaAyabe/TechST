@@ -7,4 +7,5 @@ type DeliveryDestination struct {
 	ZipCode         int    `form:"zipcode" binding:"required"`
 	Address         string `form:"address" binding:"required"`
 	TelephoneNumber string `form:"telephonenumber" binding:"required"`
+	DefaultFlag     bool
 }

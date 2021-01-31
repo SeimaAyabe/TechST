@@ -5,9 +5,11 @@ import (
 
 	// Gin
 
+	"github.com/gin-contrib/sessions"
 	"github.com/gin-gonic/gin"
 
 	dbcommonlogic "github.com/username/sampleEC/models/dbcommonlogic"
+	entity "github.com/username/sampleEC/models/entity"
 
 	// DBアクセス用モジュール
 	dao "github.com/username/sampleEC/models/dao"
@@ -41,16 +43,28 @@ func CashRegister(c *gin.Context) {
 	// DBに接続する
 	db := dbcommonlogic.Open()
 
+	// SessionInfo型(構造体)の変数 「LoginInfo」 を定義
+	var LoginInfo entity.SessionInfo
+
+	// セッションモジュールをセットする
+	session := sessions.Default(c)
+
+	// セッションから「ユーザID」を取得する
+	LoginInfo.UserID = session.Get("userId")
+
 	// 買い物カゴ内の商品情報を取得する
 	products := dao.SelectProductInShoppingCartAgain(db)
-
-	// DBを切断する
-	db.Close()
 
 	// 合計金額を取得する
 	productTotal := service.GetProductTotal(products)
 
+	// お届け先情報を取得する
+	deliveryDestination := dao.GetDeliveryDestination(LoginInfo.UserID, db)
+
+	// DBを切断する
+	db.Close()
+
 	//　「商品検索結果」画面のHTMLを返す
-	c.HTML(200, "cash-register.html", gin.H{"products": products, "productTotal": productTotal})
+	c.HTML(200, "cash-register.html", gin.H{"products": products, "productTotal": productTotal, "deliveryDestination": deliveryDestination})
 
 }
