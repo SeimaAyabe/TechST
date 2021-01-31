@@ -56,6 +56,9 @@ func serve() {
 	// 「レジ」画面へのリクエストに対するアクション
 	router.GET("/CashRegister", controller.CashRegister)
 
+	// 「注文完了」画面へのリクエストに対するアクション
+	router.GET("/OrderComplete", controller.OrderComplete)
+
 	// 「新規会員登録」画面へのリクエストに対するアクション
 	router.GET("/SignUp", func(ctx *gin.Context) {
 		ctx.HTML(http.StatusOK, "create-account.html", gin.H{})

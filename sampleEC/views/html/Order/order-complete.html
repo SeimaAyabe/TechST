@@ -106,61 +106,8 @@
             </aside>
         </div>
         <div class="column">
-            <!-- "レジ"のラベル -->
-            <h2>レジ</h2>
-            <!-- 商品のカード -->
-            {{range .products}}
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg" />
-                </a>
-                <div class="content">
-                    {{.Name}}
-                    価格
-                    {{.Price}}
-                    数量
-                    <select name="cnt">
-                        <option value="1" selected>1</option>　/*　←初期値は「selected」を入れておく　*/
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5</option>
-                    </select>
-                    小計
-                    {{.Subtotal}}
-                </div>
-            </div>
-            {{end}}
-            <!-- 合計 -->
-            <h2>合計金額 : {{.productTotal}}　円</h2>
-
-            <!-- お届け先 -->
-            <h2>お届け先</h2>
-            {{range .deliveryDestination}}
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg" />
-                </a>
-                <div class="content">
-                    {{.ZipCode}}
-                    {{.Address}}
-                </div>
-            </div>
-            {{end}}
-
-            <!-- お支払方法 -->
-            <h2>お支払方法</h2>
-            <div class="ui card">
-                <a class="image" href="#">
-                    <img src="/images/avatar/large/steve.jpg" />
-                </a>
-                <div class="content">
-                    <input type="radio" name="pay-method" value="代金引換"> 代金引換
-                    <input type="radio" name="pay-method" value="銀行振込"> 銀行振込
-                </div>
-            </div>
-            <!-- 注文確定ボタン -->
-            <button class="button is-link is-outlined" onclick="location.href='/OrderComplete'">注文確定</button>
+            <!-- "注文完了"のラベル -->
+            <h2>ご注文ありがとうございました。1週間後に商品をお届け致します。</h2>
         </div>
     </main>
 

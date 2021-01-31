@@ -118,3 +118,17 @@ func SelectProductInShoppingCartAgain(db *gorm.DB) []entity.ShoppingCartResult {
 	// 戻り値 「買い物カゴ内の商品情報一覧」
 	return products
 }
+
+// DeleteProductInShoppingCart は　買い物カゴに入っている商品を削除する
+func DeleteProductInShoppingCart() {
+	// DBに接続する
+	db := dbcommonlogic.Open()
+
+	// 買い物カゴ内の商品を削除するため、構造体を定義する
+	var shoppingCart = []entity.ShoppingCartResult{}
+
+	db.Table("shopping_cart").Delete(&shoppingCart)
+
+	// DBを切断する　(return時に実行)
+	defer db.Close()
+}

@@ -68,3 +68,12 @@ func CashRegister(c *gin.Context) {
 	c.HTML(200, "cash-register.html", gin.H{"products": products, "productTotal": productTotal, "deliveryDestination": deliveryDestination})
 
 }
+
+// OrderComplete は 「注文完了」画面へ遷移する際の処理
+func OrderComplete(c *gin.Context) {
+	// 買い物カゴから商品を削除する
+	dao.DeleteProductInShoppingCart()
+
+	//　「注文完了」画面のHTMLを返す
+	c.HTML(200, "order-complete.html", gin.H{})
+}
