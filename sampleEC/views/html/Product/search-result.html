@@ -108,6 +108,7 @@
         <div class="column">
             <!-- 検索結果情報の表示 -->
             <h2>”{{.searchedProduct}}”の検索結果</h2>
+            {{if .productHitFlag}}
             <!-- 商品のカード -->
             {{range .resultProducts}}
             <form action="/ShoppingCart/{{.ID}}" method="POST">
@@ -135,6 +136,9 @@
                     </div>
                 </div>
             </form>
+            {{end}}
+            {{else}}
+            検索キーワードに関連する商品は存在しません。
             {{end}}
         </div>
     </main>

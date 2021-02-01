@@ -41,11 +41,21 @@ func SearchProducts(c *gin.Context) {
 	// モデル側で検索キーワードに該当する「商品」テーブルのレコードを取得する
 	resultProducts := dao.SearchProducts(searchedProduct)
 
-	// 商品の値段を表示させる為の処理
-	service.CompilePrice(resultProducts)
+	// 検索キーワードに部分一致する商品が存在するかどうかを表すフラグ
+	productHitFlag := true
+
+	// 検索キーワードに部分一致する商品が存在していた場合
+	if len(resultProducts) != 0 {
+		// 商品の値段を表示させる為の処理
+		service.CompilePrice(resultProducts)
+
+		// 検索キーワードに部分一致する商品が存在していなかった場合
+	} else {
+		productHitFlag = false
+	}
 
 	//　「商品検索結果」画面のHTMLを返す
-	c.HTML(200, "search-result.html", gin.H{"resultProducts": resultProducts, "searchedProduct": searchedProduct})
+	c.HTML(200, "search-result.html", gin.H{"productHitFlag": productHitFlag, "resultProducts": resultProducts, "searchedProduct": searchedProduct})
 }
 
 // ProductDetail は 選択した商品の詳細情報を取得する
