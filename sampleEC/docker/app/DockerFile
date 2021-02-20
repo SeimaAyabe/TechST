@@ -1,12 +1,12 @@
-FROM golang:latest
-RUN mkdir test-docker
-WORKDIR /test-docker
+FROM golang:1.14
+RUN mkdir /SampleEC-docker
+WORKDIR /SampleEC-docker
 
 RUN apt-get update \
     && apt-get install -y mariadb-client
 
-COPY . .
+COPY . ./
 
-RUN CGO_ENABLED=0 go build -o main main.go
+RUN CGO_ENABLED=0 go build -o routes routes.go
 
 CMD ["./main"]
