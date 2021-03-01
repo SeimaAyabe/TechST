@@ -32,10 +32,10 @@ func serve() {
 	router := gin.Default()
 
 	// 静的ファイルのパスを指定
-	router.Static("/views", "./views")
+	router.Static("/premium_template", "./premium_template")
 
 	// HTMLファイルのパスを指定
-	router.LoadHTMLGlob("./views/html/*/**.html")
+	router.LoadHTMLGlob("./premium_template/html/**.html")
 
 	// セッションの設定
 	store := cookie.NewStore([]byte("secret"))
@@ -43,6 +43,11 @@ func serve() {
 
 	// 「トップ」画面へのリクエストに対するアクション
 	router.GET("/", controller.SessionCheck)
+
+	// 「トップ」画面(テンプレート移行)へのリクエストに対するアクション
+	router.GET("/Template", func(ctx *gin.Context) {
+		ctx.HTML(http.StatusOK, "index.html", gin.H{})
+	})
 
 	// 「商品検索結果」画面へのリクエストに対するアクション
 	router.GET("/SearchResult", controller.SearchProducts)

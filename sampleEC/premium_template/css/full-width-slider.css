@@ -1,0 +1,144 @@
+/*トップページスライドショー*/
+
+.top_slide {
+	margin-left: 200px;
+	overflow: hidden;
+}
+.slider1_container {
+	position: relative;
+	margin: 0 auto;
+	top: 0px;
+	left: 0px;
+	width: 1300px;
+	height: 500px;
+	overflow: hidden;
+}
+.fws_slides {
+	cursor: move;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1300px;
+	height: 500px;
+	overflow: hidden;
+}
+.slider_txtmain {
+	position: absolute;
+	top: 80px;
+	left: 120px;
+	z-index: 200;
+}
+.slider_txt1_1 {
+	position: absolute;
+	top: 400px;
+	left: 60px;
+	z-index: 201;
+}
+.slider_txt1_2 {
+	position: absolute;
+	top: 400px;
+	left: 150px;
+	z-index: 202;
+}
+.slider_txt1_3 {
+	position: absolute;
+	top: 400px;
+	left: 230px;
+	z-index: 203;
+}
+.slider_txt2 {
+	position: absolute;
+	bottom: 90px;
+	right: 250px;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #ff0003), color-stop(1.00, #360b0b));
+	background: -webkit-linear-gradient(#ff0003, #360b0b);
+	background: -moz-linear-gradient(#ff0003, #360b0b);
+	background: -o-linear-gradient(#ff0003, #360b0b);
+	background: -ms-linear-gradient(#ff0003, #360b0b);
+	background: linear-gradient(#ff0003, #360b0b);
+	text-align: center;
+	font-weight: normal;
+	font-size: 2em;
+	font-family: 'Teko', sans-serif;
+	text-decoration: none;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+}
+.slider_txt2 a {
+	color: #fff;
+	text-decoration: none;
+}
+/* full-width-slider */
+.jssorb21 {
+	position: absolute;
+	bottom: 26px;
+	right: 6px;
+}
+.jssorb21 div, .jssorb21 div:hover, .jssorb21 .av {
+	position: absolute;
+	/* size of bullet elment */
+	width: 19px;
+	height: 19px;
+	text-align: center;
+	line-height: 19px;
+	color: white;
+	font-size: 12px;
+	background: url(../images/top_slide/bullet.png) no-repeat;
+	overflow: hidden;
+	cursor: pointer;
+}
+.jssorb21 div {
+	background-position: -5px -5px;
+}
+.jssorb21 div:hover, .jssorb21 .av:hover {
+	background-position: -35px -5px;
+}
+.jssorb21 .av {
+	background-position: -65px -5px;
+}
+.jssorb21 .dn, .jssorb21 .dn:hover {
+	background-position: -95px -5px;
+}
+.jssora21l, .jssora21r {
+	display: block;
+	position: absolute;
+	/* size of arrow element */
+	width: 55px;
+	height: 55px;
+	cursor: pointer;
+	background: url(../images/top_slide/arrow.png) center center no-repeat;
+	overflow: hidden;
+}
+.jssora21l {
+	background-position: -3px -33px;
+	top: 123px;
+	left: 8px;
+}
+.jssora21r {
+	background-position: -63px -33px;
+	top: 123px;
+	right: 8px;
+}
+.jssora21l:hover {
+	background-position: -123px -33px;
+}
+.jssora21r:hover {
+	background-position: -183px -33px;
+}
+.jssora21l.jssora21ldn {
+	background-position: -243px -33px;
+}
+.jssora21r.jssora21rdn {
+	background-position: -303px -33px;
+}
+
+@media screen and (max-width: 768px) {
+.top_slide {
+	margin-left: 0;
+}
+}

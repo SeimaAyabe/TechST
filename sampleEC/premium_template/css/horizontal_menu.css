@@ -1,0 +1,72 @@
+/*ページ内メニュー*/
+
+.horizontal_menu {
+	display: table;
+	table-layout: fixed;
+	text-align: center;
+	width: 100%;
+}
+.horizontal_menu li {
+	border-right: 1px solid #4e4c50;
+	display: table-cell;
+	overflow: hidden;
+	text-indent: 0;
+	padding: 0;
+	line-height: 30px;
+}
+.horizontal_menu li:last-child {
+	border-right: 0;
+}
+.horizontal_menu li a {
+	color: #fff;
+	display: block;
+	text-decoration: none;
+	-webkit-transition: 0.3s ease-in-out;
+	transition: 0.3s ease-in-out;
+	text-align: center;
+}
+.horizontal_menu li a::before {
+	position: relative;
+	display: block;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	color: #fff;
+	font-size: 2rem;
+	font-family: "FontAwesome";
+}
+.horizontal_menu a {
+	background: #4e4c50;
+}
+.horizontal_menu a:hover, .horizontal_menu a:hover::before, .horizontal_menu li a.active, .horizontal_menu li a.active::before {
+	background: #f5f5f5;
+	color: #333;
+}
+.horizontal_menu .h_m1_1 a::before {
+	content: "\f1b9";
+}
+.horizontal_menu .h_m1_2 a::before {
+	content: "\f206";
+}
+.horizontal_menu .h_m1_3 a::before {
+	content: "\f083";
+}
+.horizontal_menu .h_m1_4 a::before {
+	content: "\f0f4";
+}
+#tabcontent {
+	width: 100%;
+	margin: 0 auto;
+}
+#tabcontent h4 {
+	text-align: center;
+	border-bottom: solid 3px #000;
+}
+@media screen and (max-width: 768px) {
+.horizontal_menu li {
+	line-height: 25px;
+	font-size: 1.2rem;
+}
+.horizontal_menu li a::before {
+	font-size: 1.5rem;
+}
+}

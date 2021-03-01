@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>ショッピング | ここにキーワードを含むページのタイトルを記入</title>
+<meta name="Description" content="ショッピング | ここにキーワードを含むページの説明文を記入" />
+<meta name="Keywords" content="ショッピング,キーワード,キーワード,キーワード" />
+<link rel="icon" href="http://ここにサイトurlを記入/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" type="img/x-icon" href="http://ここにサイトurlを記入/favicon.ico" />
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/content.css">
+<!--左側のメニュー-->
+<link rel="stylesheet" href="css/vertical-responsive-menu.css" />
+<!--右上のメニュー-->
+<link rel="stylesheet" href="css/nav-layout.css">
+<!--ページ内メニュー-->
+<link rel="stylesheet" href="css/horizontal_menu.css">
+<!--googlewebフォント-->
+<link href='https://fonts.googleapis.com/css?family=Playball|Teko' rel='stylesheet' type='text/css'>
+<!--アイコンwebフォント-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<!--画像の整列-->
+<link rel="stylesheet" href="css/mixitup.css">
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+</head>
+
+<body>
+<noscript>
+<p>※このページはJavaScriptを使用しています。JavaScript設定を有効にしてご覧ください。</p>
+</noscript>
+
+<!--ロゴ（ページ左上のサイト名）-->
+<header class="header">
+  <h1> <a href="index.html" title="ここにキーワードを含むページの見出しを記入"><span class="h1_1"><span class="h1_subcol">S</span>ample</span><span class="h1_2">Template</span></a> </h1>
+  
+  <!--右上のメニュー--> 
+  <a href="#" class="nav-button"><i class="fa fa-ellipsis-v"></i></a>
+  <div class="nav_right">
+    <div class="nav">
+      <ul>
+        <li class="nav-submenu"> <a href="#">アカウントサービス</a>
+          <ul>
+            <li> <a href="#">アカウントサービス</a></li>
+            <li> <a href="#">購入履歴</a></li>
+            <li> <a href="#">お気に入り</a></li>
+          </ul>
+        </li>
+        <li> <a href="terms.html">ご利用規約</a></li>
+        <li> <a href="mailform/contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+  </div>
+  <button type="button" id="toggleMenu" class="toggle_menu"> <i class="fa fa-bars"></i> </button>
+</header>
+
+<!--左側のメニュー-->
+<nav class="vertical_nav leftnav">
+  <ul id="js-menu" class="menu">
+    <li class="menu--item">
+      <label class="menu--link"> <span class="menu--label"><a href="news.html" class="main_menu--link">NEWS</a></span> </label>
+    </li>
+    <li class="menu--item">
+      <label class="menu--link"> <span class="menu--label"><a href="products.html" class="main_menu--link">PRODUCTS</a></span> </label>
+    </li>
+    <li class="menu--item  menu--item__has_sub_menu">
+      <label class="menu--link"> <span class="menu--label"><a href="#" class="main_menu--link">SHOP</a></span> </label>
+      <ul class="sub_menu">
+        <li class="sub_menu--item"> <a href="shop.html" class="sub_menu--link">SHOP-CATEGORY1</a></li>
+        <li class="sub_menu--item"> <a href="shop.html" class="sub_menu--link">SHOP-CATEGORY2</a></li>
+        <li class="sub_menu--item"> <a href="shop.html" class="sub_menu--link">SHOP-CATEGORY3</a></li>
+      </ul>
+    </li>
+    <li class="menu--item  menu--item__has_sub_menu">
+      <label class="menu--link"> <span class="menu--label"><a href="#" class="main_menu--link">MENU</a></span> </label>
+      <ul class="sub_menu">
+        <li class="sub_menu--item"> <a href="menu.html" class="sub_menu--link">MENU1</a></li>
+        <li class="sub_menu--item"> <a href="menu.html" class="sub_menu--link">MENU2</a></li>
+        <li class="sub_menu--item"> <a href="menu.html" class="sub_menu--link">MENU3</a></li>
+      </ul>
+    </li>
+    <li class="menu--item">
+      <label class="menu--link"> <span class="menu--label"><a href="video.html" class="main_menu--link">VIDEO</a></span> </label>
+    </li>
+    <li class="menu--item">
+      <label class="menu--link"> <span class="menu--label"><a href="company.html" class="main_menu--link">COMPANY</a></span> </label>
+    </li>
+    <li class="menu--item">
+      <label class="menu--link"> <span class="menu--label"><a href="access.html" class="main_menu--link">ACCESS</a></span> </label>
+    </li>
+  </ul>
+</nav>
+<div class="wrapper">
+  <div class="content">
+    <div class="content_inner">
+      <article>
+        <h2>ショッピング</h2>
+        <h3>カテゴリ</h3>
+        <section>
+          <div class="controls">
+            <div class="mixitup_select">
+              <select id="FilterSelect" class="ctSelect">
+                <option value="all"><span></span>すべて表示</option>
+                <option value=".category-1">カテゴリ１</option>
+                <option value=".category-2">カテゴリ２</option>
+              </select>
+            </div>
+            <div class="mixitup_select">
+              <select id="SortSelect" class="ctSelect">
+                <option value="default">標準</option>
+                <option value="myorder:asc">安い順番</option>
+                <option value="myorder:desc">高い順番</option>
+                <option value="random">ランダム</option>
+              </select>
+            </div>
+            <div class="ChangeLayoutlist changeLayout_button"><i class="fa fa-th-list"></i></div>
+            <div class="ChangeLayoutgrid changeLayout_button cb_active"><i class="fa fa-th-large"></i></div>
+          </div>
+          <div id="Shop" class="shop">
+            <div class="mix mixit_grid category-1" data-myorder="5200"><a href="shop_goods.html"><img src="images/shop/shop1/5fb169c67d8374d4743f76cef6d2e928_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html"> Category1-1</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">5,250円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="8160"><a href="shop_goods.html"><img src="images/shop/shop1/8efab9998903e236a2ed2e86b304d72c_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-2</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">8,160円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="9100"><a href="shop_goods.html"><img src="images/shop/shop1/209b4ba5dbb88826d9ca551f51dd28f5_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-3</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">9,100円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="6490"><a href="shop_goods.html"><img src="images/shop/shop2/7e062637d72f7d20421865441acfd891_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-1</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">6,490円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="8000"><a href="shop_goods.html"><img src="images/shop/shop1/235f126ea2ac9e41aa25c69686f60e05_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-4</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">8,000円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="3130"><a href="shop_goods.html"><img src="images/shop/shop1/443c8d0a22451b5d1c15397ee9488620_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-5</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">3,130円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="1540"><a href="shop_goods.html"><img src="images/shop/shop2/8c76c4354c9d0d0b947dc8f51e5d774c_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-2</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">1,540円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="4110"><a href="shop_goods.html"><img src="images/shop/shop2/66caa6a3051b38f5597ea80b63dbbc00_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-3</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">4,110円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="7100"><a href="shop_goods.html"><img src="images/shop/shop1/3092b594387976da880f943cf9ebad9b_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-6</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">7,100円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="2220"><a href="shop_goods.html"><img src="images/shop/shop1/3362f7e1e2375476e58de70945b94ce0_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-7</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">2.220円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="4540"><a href="shop_goods.html"><img src="images/shop/shop2/4662c66c7e01836dc11f0b4cf24f3e70_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-4</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">4,540円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="6990"><a href="shop_goods.html"><img src="images/shop/shop2/42634a7192d06e273593f6cdf9d30180_s.jpg"  alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-5</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">6,990円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="3600"><a href="shop_goods.html"><img src="images/shop/shop2/c68e523a27393ec3867c74e7cd0f856e_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-6</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">3,600円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="2500"><a href="shop_goods.html"><img src="images/shop/shop2/ef5c87dcf3e05c7e13ca76de0207f9f2_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-7</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">2,500円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="1020"><a href="shop_goods.html"><img src="images/shop/shop1/226519a67e052d14102dfe1db8011a90_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-8</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">1,020円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="5890"><a href="shop_goods.html"><img src="images/shop/shop1/3486093075b78e1a77b538a8c7a42353_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-9</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">5,890円</p>
+            </div>
+            <div class="mix mixit_grid category-1" data-myorder="3230"><a href="shop_goods.html"><img src="images/shop/shop1/c50ee83f9744d93982cb0eda1481fb4a_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category1-10</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">3,230円</p>
+            </div>
+            <div class="mix mixit_grid category-2" data-myorder="2540"><a href="shop_goods.html"><img src="images/shop/shop2/f83cbe20fe4fdc3fd0240e6dcc88287c_s.jpg" alt="goods" /></a>
+              <div class="item_content">
+                <p class="category"><a href="shop_goods.html">Category2-8</a></p>
+                <p class="description">テキストテキストテキストテキストテキストテキストテキスト</p>
+              </div>
+              <p class="price">2,540円</p>
+            </div>
+            <div class="gap"></div>
+            <div class="gap"></div>
+          </div>
+        </section>
+      </article>
+      <!-- / .content_inner --> 
+    </div>
+    <!-- / .content --> 
+  </div>
+  <!-- / .wrapper --> 
+</div>
+<footer id="footer">
+  <ul class="footerlink">
+    <li><a href="privacy.html">プライバシーポリシー</a></li>
+    <li><a href="company.html">会社概要</a></li>
+    <li><a href="tokusyouhou.html">特定商取引法に基づく表記</a></li>
+  </ul>
+  <p class="copyright">© 2016 企業名やサイト名など All Rights Reserved.</p>
+</footer>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script><!--googleのCDN（ネットワーク経由でコンテンツを提供するサービス）よりjqueryをロード--> 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> <!--エフェクト動作--> 
+<script src="js/nav.jquery.min.js"></script> <!--右上のメニュー--> 
+<script>
+    $('.nav').nav();
+</script> 
+<script src="js/vertical-responsive-menu.min.js" ></script> <!--左側のメニュー--> 
+<script src="js/footerFixed.js"></script><!--フッター下部固定--> 
+<script src="js/scrolltopcontrol.js"></script><!--スクロールしながらページのトップに戻る--> 
+<!--ギャラリー--> 
+<script src="js/jquery.mixitup.js"></script> 
+<script src="js/jquery.mixitup.index.js"></script> 
+<!--セレクトボックス--> 
+<script src="js/jquery.customSelect.min.js"></script> 
+<script>
+ $(function() {
+     $('.ctSelect').customSelect()
+ });
+</script>
+</body>
+</html>

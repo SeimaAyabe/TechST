@@ -1,0 +1,173 @@
+@charset 'utf-8';
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, textarea, p, th, td, img {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+html, body {
+	height: 100%;
+}
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+body {
+	line-height: 2;
+	background: #fff;
+	font-family: 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Osaka, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro';
+	color: #333;
+}
+ol, ul {
+	list-style: none;
+}
+a {
+	color: #1D3994;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+.color1 {
+	color: #d70035;
+}
+.color2 {
+	color: #000;
+	font-weight: bold;
+}
+/*ヘッダー*/
+header {
+	position: fixed;
+	top: 0;
+	left: 200px;
+	width: 100%;
+	height: 70px;
+	background: #fff;
+	z-index: 1000;
+	border-left: solid 1px #ddd;
+	border-bottom: solid 1px #ddd;
+}
+h1 {
+	position: fixed;
+	top: 2px;
+	left: 14px;
+	font-family: 'Playball', cursive;
+	font-size: 4rem;
+	line-height: 40px;
+}
+.h1_1 {
+	position: fixed;
+	top: 20px;
+	left: 30px;
+}
+.h1_2 {
+	position: fixed;
+	top: 65px;
+	left: 30px;
+}
+h1 a {
+	color: #000;
+	text-decoration: none;
+}
+h1 a:hover {
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+	opacity: 0.6;
+	filter: alpha(opacity=60);
+	-moz-opacity: 0.6;
+	text-decoration: none;
+}
+.h1_subcol {
+	color: #d70035;
+}
+/*レイアウト*/
+.wrapper {
+	float: right;
+	width: 100%;
+	margin-top: 70px;
+	margin-left: -200px;
+}
+.main {
+	width: 100%;
+	float: left;
+	margin-right: -340px;
+}
+.content {
+	width: 100%;
+	float: right;
+	margin-left: -220px;
+}
+.top_content_inner {
+	margin-left: 200px;
+	margin-right: 340px;
+	border-left: solid 1px #ddd;
+}
+.content_inner {
+	margin-left: 200px;
+	border-left: solid 1px #ddd;
+}
+.rightside {
+	width: 320px;
+	float: right;
+	margin: 50px 0 0;
+	padding-right: 20px;
+}
+footer {
+	clear: both;
+	position: relative;
+	width: auto;
+	height: 100px;
+	margin-left: 200px;
+	background: #353535;
+}
+
+@media screen and (max-width: 768px) {
+/*ヘッダー*/
+header {
+	left: 0;
+	height: 50px;
+	border-left: none;
+}
+h1 {
+	font-size: 3rem;
+	width: auto;
+	z-index: 1100;
+	height: 50px;
+	line-height: 50px;
+}
+.h1_1 {
+	position: fixed;
+	top: 2px;
+	left: 50px;
+}
+.h1_2 {
+	position: fixed;
+	top: 2px;
+	left: 150px;
+}
+/*レイアウト*/
+.wrapper {
+	margin: 50px 0 0 0;
+}
+.main, .content, .content_inner, .top_content_inner {
+	margin: 0;
+}
+.rightside {
+	width: 100%;
+	margin: 20px;
+	padding: 0 0 0 40px;
+}
+footer {
+	margin-left: 0;
+}
+}
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+.rightside {
+	margin: 20px 0 0;
+	padding-right: 20px;
+}
+}

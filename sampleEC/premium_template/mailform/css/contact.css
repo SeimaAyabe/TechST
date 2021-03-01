@@ -1,0 +1,199 @@
+.form {
+	margin: 0;
+	color: #333;
+	font-size: 2rem;
+}
+.form_clearfix:after {
+	clear: both;
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+}
+.required {
+	color: #ff0000;
+}
+.exa {
+	padding: 5px;
+	color: #a9a9a9;
+}
+.form dl {
+	position: relative;
+	width: 100%;
+	padding: 15px 0;
+	border-bottom: 1px solid #dcdcdc;
+}
+.form dl dt {
+	position: absolute;
+	width: 30%;
+	float: left;
+	padding: 5px 10px 10px 10px;
+}
+.form dl dd {
+	width: 68%;
+	float: right;
+}
+.form dl dd textarea, .form dl dd .txt {
+	background-color: #fff;
+	padding: 0 10px;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	width: 50%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 2rem;
+}
+.form dl dd textarea {
+	font-weight: bold;
+}
+.form dl dd .page {
+	width: 10% !important;
+}
+.form dl dd textarea {
+	width: 100% !important;
+	height: 100%;
+}
+.form dd .ina {
+	ime-mode: disabled;
+}
+.chra li {
+	margin-left: 10px;
+}
+.chra_hori li {
+	display: inline;
+}
+.ctSelect {
+	background: url(../img/arrow.png) right center no-repeat;
+	background-color: #fff;
+	padding: 0 10px;
+	border: 1px solid #dcdcdc;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	width: 30%;
+	height: 40px;
+	line-height: 40px;
+	font-size: 2rem !important;
+}
+.customSelectInner {
+	width: 100% !important;
+}
+.clip {
+	line-height: 30px;
+}
+.kakunin {
+	width: 320px;
+	display: table;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+}
+.kakunin li {
+	margin: 0 10px;
+}
+.btn_reset {
+	width: 150px;
+	margin: 0;
+	padding: 5px 0 7px;
+	border-radius: 5px;
+	background: #888888;
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzg4ODg4OCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM2NjY2NjYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top, #888888 0%, #666666 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #888888), color-stop(100%, #666666));
+	background: -webkit-linear-gradient(top, #888888 0%, #666666 100%);
+	background: -o-linear-gradient(top, #888888 0%, #666666 100%);
+	background: -ms-linear-gradient(top, #888888 0%, #666666 100%);
+	background: linear-gradient(to bottom, #888888 0%, #666666 100%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#888888', endColorstr='#666666', GradientType=0 );
+	color: #fff;
+	font-size: 2rem;
+	text-align: center;
+}
+.btn_reset:hover {
+	text-decoration: none;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+	cursor: pointer;
+}
+.btn_submit {
+	width: 150px;
+	margin: 0;
+	padding: 5px 0 7px;
+	border-radius: 5px;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.00, #0036ff), color-stop(1.00, #001a9b));
+	background: -webkit-linear-gradient(#0036ff, #001a9b);
+	background: -moz-linear-gradient(#0036ff, #001a9b);
+	background: -o-linear-gradient(#0036ff, #001a9b);
+	background: -ms-linear-gradient(#0036ff, #001a9b);
+	background: linear-gradient(#0036ff, #001a9b);
+	color: #fff;
+	font-size: 2rem;
+	text-align: center;
+}
+.btn_submit:hover {
+	text-decoration: none;
+	opacity: 0.8;
+	filter: alpha(opacity=80);
+	-moz-opacity: 0.8;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-ms-transition: 0.5s;
+	-o-transition: 0.5s;
+	transition: 0.5s;
+	cursor: pointer;
+}
+.form th {
+	padding-right: 20px;
+	text-align: left;
+	font-weight: normal;
+}
+.form td {
+	text-align: left;
+}
+.msg {
+	color: #ff0000;
+}
+
+@media screen and (max-width: 768px) {
+.form {
+	margin: 0;
+	font-size: 1.5rem;
+}
+.form dl {
+	width: 100%;
+	border: none;
+}
+.form dl dt {
+	float: none;
+	position: static;
+	width: 100%;
+	padding: 0;
+}
+.form dl dd {
+	float: none;
+	width: 100%;
+}
+.form dl dd .txt {
+	width: 100%;
+}
+.form dl dd textarea, .form dl dd .txt, .btn_reset, .btn_submit, .ctSelect {
+	font-size: 1.5rem !important;
+}
+.kakunin {
+	width: 300px;
+}
+.btn_reset {
+	width: 130px;
+}
+.btn_submit {
+	width: 130px;
+}
+}
