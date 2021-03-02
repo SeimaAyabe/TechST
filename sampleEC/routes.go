@@ -32,10 +32,10 @@ func serve() {
 	router := gin.Default()
 
 	// 静的ファイルのパスを指定
-	router.Static("/premium_template", "./premium_template")
+	router.Static("/views", "./views")
 
 	// HTMLファイルのパスを指定
-	router.LoadHTMLGlob("./premium_template/html/**.html")
+	router.LoadHTMLGlob("./views/html/*/**.html")
 
 	// セッションの設定
 	store := cookie.NewStore([]byte("secret"))
