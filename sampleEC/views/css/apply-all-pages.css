@@ -1,5 +1,10 @@
 @charset "utf-8";
 
+/*============================================
+全ページ共通のスタイル
+============================================*/
+
+/* ブラウザによる初期スタイルをリセットし、レイアウトのずれをなくす */
 html, body,
 h1, h2, h3, h4, h5, h6,
 a, p, span, ol, ul, li,
@@ -13,18 +18,16 @@ tr, th, td {
     border: 0;
 }
 
-html, body {
-	height: 100%;
-}
+/* フォントカテゴリ・サイズ・色 (対象:htmlタグ) */
 html {
 	font-size: 62.5%;
-	box-sizing: border-box;
-}
-body {
-	line-height: 2;
-	background: #fff;
-	font-family: 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Osaka, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro';
+	font-family: Verdana,"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","ＭＳ Ｐゴシック",sans-serif;
 	color: #333;
+}
+
+/* (対象:bodyタグ) */
+body {
+	line-height: 2; /* 行の高さ */
 }
 ol, ul {
 	list-style: none;
