@@ -1,9 +1,18 @@
-@charset 'utf-8';
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, form, input, textarea, p, th, td, img {
-	margin: 0;
-	padding: 0;
-	border: 0;
+@charset "utf-8";
+
+html, body,
+h1, h2, h3, h4, h5, h6,
+a, p, span, ol, ul, li,
+div, section, article,
+main, aside, nav, header, footer,
+img, iframe, details, summary, fieldset,
+form, label, table, tbody, tfoot, thead,
+tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
+
 html, body {
 	height: 100%;
 }
