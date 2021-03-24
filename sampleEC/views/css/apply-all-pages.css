@@ -6,10 +6,10 @@
 
 /* ブラウザによる初期スタイルをリセットし、レイアウトのずれをなくす */
 html, body,
+main, aside, nav, header, footer,
 h1, h2, h3, h4, h5, h6,
 a, p, span, ol, ul, li,
 div, section, article,
-main, aside, nav, header, footer,
 img, iframe, details, summary, fieldset,
 form, label, table, tbody, tfoot, thead,
 tr, th, td {
@@ -21,8 +21,8 @@ tr, th, td {
 /* フォントカテゴリ・サイズ・色 (対象:htmlタグ) */
 html {
 	font-family: Verdana,"メイリオ",Meiryo,"ヒラギノ角ゴ Pro W3","ＭＳ Ｐゴシック",sans-serif;
-	font-size: 62.5%;
-	color: #333;
+	font-size: 60%; /* 元々は62.5%。違和感を覚えたら元に戻す */
+	color: rgb(255, 255, 255);
 }
 
 /* (対象:bodyタグ) */
@@ -43,25 +43,14 @@ ol, ul {
 	list-style: none;
 }
 
-/*ヘッダー*/
+/* (対象:headerタグ) */
 header {
-	position: fixed;
-	top: 0;
-	left: 200px;
-	width: 100%;
-	height: 70px;
-	background: #fff;
-	z-index: 1000;
-	border-left: solid 1px #ddd;
-	border-bottom: solid 1px #ddd;
-}
-h1 {
-	position: fixed;
-	top: 2px;
-	left: 14px;
-	font-family: 'Playball', cursive;
-	font-size: 4rem;
-	line-height: 40px;
+	background: rgb(3, 1, 90);
+	/* left: 200px; // TODO ここをコメントアウトすることによって、上全体がheaderとなるので、最終的には消して良さそう */
+	width: 100%; /* 要素の幅を指定 */
+	height: 80px; /* 要素の高さを指定 (実験的にあえて70pxからずらしている) */
+	position: fixed; /* スクロールしても常にヘッダーを表示させる */
+	z-index: 5; /* 要素同士が重なった時に優先的に表示させる要素を指定 (数字が高いほど優先される) */
 }
 
 /*レイアウト*/
