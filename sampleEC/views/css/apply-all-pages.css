@@ -63,34 +63,7 @@ h1 {
 	font-size: 4rem;
 	line-height: 40px;
 }
-.h1_1 {
-	position: fixed;
-	top: 20px;
-	left: 30px;
-}
-.h1_2 {
-	position: fixed;
-	top: 65px;
-	left: 30px;
-}
-h1 a {
-	color: #000;
-	text-decoration: none;
-}
-h1 a:hover {
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	-ms-transition: 0.5s;
-	-o-transition: 0.5s;
-	transition: 0.5s;
-	opacity: 0.6;
-	filter: alpha(opacity=60);
-	-moz-opacity: 0.6;
-	text-decoration: none;
-}
-.h1_subcol {
-	color: #d70035;
-}
+
 /*レイアウト*/
 .wrapper {
 	float: right;
