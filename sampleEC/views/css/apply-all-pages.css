@@ -57,8 +57,7 @@ header {
 .wrapper {
 	float: right;
 	width: 100%;
-	margin-top: 70px;
-	margin-left: -200px;
+	margin-top: 80px; /* 上の要素に対してどれだけ間隔を取るかを指定 */
 }
 .main {
 	width: 100%;
