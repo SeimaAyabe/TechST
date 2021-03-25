@@ -8,6 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <!--ファビコン(ブラウザのアドレスバーなどに表示される小さなアイコン)-->
   <link rel="icon" href="未定義" type="image/x-icon" />
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css" />
+
   <!--全ページ共通-->
   <link rel="stylesheet" href="/views/css/apply-all-pages.css">
   <link rel="stylesheet" href="/views/css/content.css">
@@ -45,6 +48,13 @@
 
     <!--右上のメニュー-->
     <a href="#" class="nav-button"><i class="fa fa-ellipsis-v"></i></a>
+    <div class="ui category search search-config">
+      <div class="ui icon input">
+        <input class="prompt" type="text" placeholder="Search animals...">
+        <i class="search icon"></i>
+      </div>
+      <div class="results"></div>
+    </div>
     <div class="nav_right">
       <div class="nav">
         <ul>

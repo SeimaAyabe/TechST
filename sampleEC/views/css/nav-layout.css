@@ -1,5 +1,14 @@
 /*右上のメニュー*/
 
+.search-config{
+	position: fixed;
+	top: 10px;
+	left: 400px;
+	font-size: 2.6rem;
+	font-weight: normal;
+	z-index: 1300;
+}
+
 .nav-lock-scroll {
 	overflow: hidden
 }
