@@ -1,7 +1,10 @@
-/*トップページスライドショー*/
+@charset "utf-8";
+
+/*============================================
+スライドショーのスタイル (対象:「トップ」ページ)
+============================================*/
 
 .top_slide {
-	/* margin-left: 200px; */
 	overflow: hidden;
 }
 .slider1_container {
@@ -136,9 +139,3 @@
 .jssora21r.jssora21rdn {
 	background-position: -303px -33px;
 }
-
-/*@media screen and (max-width: 768px) {
-.top_slide {
-	margin-left: 0;
-}
-}*/

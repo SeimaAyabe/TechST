@@ -121,7 +121,6 @@ func SessionCheck(c *gin.Context) {
 
 	// セッションから「ユーザ名」を取得する
 	LoginInfo.UserName = session.Get("userName")
-	fmt.Println(LoginInfo.UserName)
 
 	// セッションが保存されていた場合、セッションフラグに"true"をセットする
 	if LoginInfo.UserName != nil {

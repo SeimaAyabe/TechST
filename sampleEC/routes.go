@@ -44,11 +44,6 @@ func serve() {
 	// 「トップ」画面へのリクエストに対するアクション
 	router.GET("/", controller.SessionCheck)
 
-	// 「トップ」画面(テンプレート移行)へのリクエストに対するアクション
-	router.GET("/Template", func(ctx *gin.Context) {
-		ctx.HTML(http.StatusOK, "top.html", gin.H{})
-	})
-
 	// 「商品検索結果」画面へのリクエストに対するアクション
 	router.GET("/SearchResult", controller.SearchProducts)
 
