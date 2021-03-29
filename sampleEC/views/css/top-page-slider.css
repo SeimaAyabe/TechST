@@ -1,7 +1,7 @@
 /*トップページスライドショー*/
 
 .top_slide {
-	margin-left: 200px;
+	/* margin-left: 200px; */
 	overflow: hidden;
 }
 .slider1_container {
@@ -137,8 +137,8 @@
 	background-position: -303px -33px;
 }
 
-@media screen and (max-width: 768px) {
+/*@media screen and (max-width: 768px) {
 .top_slide {
 	margin-left: 0;
 }
-}
+}*/
