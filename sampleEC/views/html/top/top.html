@@ -49,13 +49,15 @@
     <!--共通ヘッダー-->
     <a href="#" class="nav-button"><i class="fa fa-ellipsis-v"></i></a>
     <!--検索フォーム-->
-    <div class="ui category search search-config">
-      <div class="ui icon input">
-        <input class="prompt" type="text" placeholder="Search animals...">
-        <i class="search icon"></i>
+    <form action="/SearchResult" method="GET">
+      <div class="ui category search search-config">
+        <div class="ui icon input">
+          <input class="prompt" type="text" placeholder="Search animals...">
+          <i class="search icon"></i>
+        </div>
+        <div class="results"></div>
       </div>
-      <div class="results"></div>
-    </div>
+    </form>
     <div class="nav_right">
       <div class="nav">
         <ul>
