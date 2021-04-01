@@ -385,27 +385,26 @@
 
         <!-- <div class="col-lg-6"> -->
         <h2>新規会員登録</h2>
-        <form class="contact-form php-mail-form" role="form" action="contactform/contactform.php" method="POST">
+        <form class="contact-form php-mail-form" role="form" action="/CreateAccount" method="POST">
 
           <div class="form-group">
-            <input type="name" name="name" class="form-control" id="contact-name" placeholder="Your Name"
-              data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+            <input type="name" name="name" class="form-control" id="name" placeholder="Name" data-rule="minlen:4"
+              data-msg="Please enter at least 4 chars">
             <div class="validate"></div>
           </div>
           <div class="form-group">
-            <input type="email" name="email" class="form-control" id="contact-email" placeholder="Your Email"
-              data-rule="email" data-msg="Please enter a valid email">
+            <input type="email" name="email" class="form-control" id="email" placeholder="Email" data-rule="email"
+              data-msg="Please enter a valid email">
             <div class="validate"></div>
           </div>
           <div class="form-group">
-            <input type="text" name="subject" class="form-control" id="contact-subject" placeholder="Subject"
+            <input type="password" name="password" class="form-control" id="password" placeholder="Password"
               data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
             <div class="validate"></div>
           </div>
-
           <div class="form-group">
-            <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5"
-              data-rule="required" data-msg="Please write something for us"></textarea>
+            <input type="password" name="password-confirmation" class="form-control" id="password-confirmation"
+              placeholder="Confirmation" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject">
             <div class="validate"></div>
           </div>
 
