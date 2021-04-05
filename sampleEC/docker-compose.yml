@@ -26,3 +26,7 @@ services:
     volumes:
       - ./docker/db/conf.d:/etc/mysql/conf.d
       - ./log/mysql:/var/log/mysql
+      - mysql-db:/var/lib/mysql
+
+volumes:
+  mysql-db:
