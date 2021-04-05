@@ -161,60 +161,43 @@
                     <article>
                         <h2>HOME</h2>
                         <div class="grid_wrap" style="margin-top:30px">
-                            <div class="grid_box">
-                                <div class="grid_box_info">
-                                    <div class="inner">
-                                        {{if .productHitFlag}}
-                                        <!-- 商品のカード -->
-                                        {{range .resultProducts}}
-                                        <form action="/ShoppingCart/{{.ID}}" method="POST">
-                                            <div class="ui card">
-                                                <a class="image" href="#">
-                                                    <img src="/images/avatar/large/steve.jpg" />
-                                                </a>
-                                                <div class="content">
-                                                    <a class="header" href="/ProductDetail/{{.ID}}">{{.Name}}</a>
-                                                    数量
-                                                    <select name="cnt">
-                                                        <option value="1" selected>1</option>
-                                                        　/*　←初期値は「selected」を入れておく　*/
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
-                                                    </select>
-                                                    <!-- 「買い物カゴへ」リンク -->
-                                                    <div class="form-send">
-                                                        <button type="submit" class="btn btn-large">カゴへ</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                        {{end}}
-                                        {{else}}
-                                        検索キーワードに関連する商品は存在しません。
-                                        {{end}}
-                                    </div>
-                                </div>
-                                <p class="grid_box_txt_p">&nbsp;</p>
-                            </div>
                             <div class="grid_box affi2">
                                 <!--アフィリエイト(幅1280px以下の場合に表示)-->
                                 <!-- ここにレスポンシブ広告コードなどを貼り付け -->
                                 <img src="/views/images/ad2.png" alt="広告" style="width:100%; text-align:center" />
                             </div>
-                            <div class="grid_box">
-                                <div class="view"> <img src="/views/images/products/products1.png" alt="PRODUCTS画像" />
-                                    <a href="products.html" title="PRODUCTS">
-                                        <div class="mask">
-                                            <p><i class="fa fa-external-link"></i>&nbsp;&nbsp;Open</p>
-                                        </div>
-                                    </a> </div>
-                                <div class="bottom_txt_top">
-                                    <p class="grid_box_txt_top"><a href="products.html" title="PRODUCTS"
-                                            target="_blank">PRODUCTS</a></p>
+                            {{if .productHitFlag}}
+                            <!-- 商品のカード -->
+                            {{range .resultProducts}}
+                            <form action="/ShoppingCart/{{.ID}}" method="POST">
+                                <div class="grid_box">
+                                    <div class="view"> <img src="/views/images/products/products1.png"
+                                            alt="PRODUCTS画像" />
+                                        <button type="submit">
+                                            <div class="mask">
+                                                <p><i class="fa fa-external-link"></i>&nbsp;&nbsp;カゴへ</p>
+                                            </div>
+                                        </button>
+                                    </div>
+                                    <div class="bottom_txt_top">
+                                        <p class="grid_box_txt_top"><a href="products.html" title="PRODUCTS"
+                                                target="_blank">{{.Name}}</a></p>
+                                    </div>
+                                    数量
+                                    <select name="cnt">
+                                        <option value="1" selected>1</option>
+                                        　/*　←初期値は「selected」を入れておく　*/
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
                                 </div>
-                            </div>
+                            </form>
+                            {{end}}
+                            {{else}}
+                            検索キーワードに関連する商品は存在しません。
+                            {{end}}
                             <div class="grid_box">
                                 <div class="view"> <img src="/views/images/products/products2.png" alt="PRODUCTS画像" />
                                     <a href="products.html" title="PRODUCTS">
