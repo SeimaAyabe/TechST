@@ -32,6 +32,9 @@ func SearchProducts(searchedProducts string) []entity.Product {
 	// DB接続
 	db := dbcommonlogic.Open()
 
+	// 「商品」テーブルが存在していなければ自動作成
+	db.AutoMigrate(&entity.Product{})
+
 	// DB内で検索キーワードの部分一致検索を行う
 	db.Where("name LIKE ?", "%"+searchedProducts+"%").Find(&product)
 

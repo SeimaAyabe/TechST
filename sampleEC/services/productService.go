@@ -34,7 +34,7 @@ func CompilePrice(productList []entity.Product) {
 	}
 
 	// 文字列を逆順に並び替える
-	productList[0].CompiledPrice = ReverseString(commaPrice)
+	// productList[0].CompiledPrice = ReverseString(commaPrice)
 
 }
 

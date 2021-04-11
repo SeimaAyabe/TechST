@@ -1,9 +1,14 @@
 package entity
 
+import (
+	// GORM (Go言語のORM)
+	"github.com/jinzhu/gorm"
+)
+
 // Product は「商品」テーブルのモデル
 type Product struct {
-	ID            int    `gorm:"primary_key;not null"`
-	Name          string `gorm:"type:varchar(200);not null"`
+	gorm.Model
+	Name          string `gorm:"size:255;not null"`
 	Price         int    `gorm:"not null"`
-	CompiledPrice string
+	// CompiledPrice string
 }

@@ -17,6 +17,7 @@ func Open() *gorm.DB {
 	CONNECT := USER + ":" + PASS + "@" + PROTOCOL + "/" + DBNAME
 	db, err := gorm.Open(DBMS, CONNECT)
 
+	// DB接続エラー時の処理
 	if err != nil {
 		panic(err.Error())
 	}
@@ -30,9 +31,8 @@ func Open() *gorm.DB {
 	// 登録するテーブル名を単数形にする（デフォルトは複数形）
 	db.SingularTable(true)
 
-	// マイグレーション（テーブルが無い時は自動生成）
-	// db.AutoMigrate(&entity.Customer{})
-
+	// DBが接続されたことを示すログを出力
 	fmt.Println("db connected: ", &db)
+
 	return db
 }
