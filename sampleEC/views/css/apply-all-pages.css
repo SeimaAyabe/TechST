@@ -93,11 +93,12 @@ footer {
 	background: #353535;
 }
 
+/* ページの表示幅が768px以下の場合に適用するスタイルを記述 */
 @media screen and (max-width: 768px) {
-/*ヘッダー*/
+/* (対象:headerタグ) */
 header {
 	left: 0;
-	height: 80px;
+	height: 80px; /* 要素の高さを指定 (実験的にあえて70pxからずらしている) */
 	border-left: none;
 }
 h1 {
@@ -119,7 +120,7 @@ h1 {
 }
 /*レイアウト*/
 .wrapper {
-	margin: 50px 0 0 0;
+	margin-top: 80px; /* 上の要素に対してどれだけ間隔を取るかを指定 */
 }
 .main, .content, .content_inner, .top_content_inner {
 	margin: 0;
